@@ -1,0 +1,9 @@
+util functions
+
+ex : format ,calculate
+
+naming
+->동사 명사 명사(camel)
+
+ex : formatFolderData
+     calculateUpdateTime

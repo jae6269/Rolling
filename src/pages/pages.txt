@@ -1,0 +1,6 @@
+page container components
+각각 페이지는 폴더로만들어서 그 안에
+
+Page.jsx
+page.scss
+파일로 관리.
