@@ -18,11 +18,14 @@ data return format
 
 function Card() {
   const CARD_DATA_URL =
-    'https://rolling-api.vercel.app/4-20//recipients/1/messages/';
+    'https://rolling-api.vercel.app/4-20//recipients/32/messages/';
   const testId = 1;
   return (
     <div className="card-container">
-      <div className="profile"></div>
+      <div className="profile">
+        <img src="" alt="profileImgae" />
+      </div>
+      <div className="separate-line"></div>
       <div className="text"></div>
       <p className="date"></p>
     </div>
