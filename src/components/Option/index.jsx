@@ -1,48 +1,52 @@
 import React, { useState } from 'react';
-import { optionBtn } from '../../utils/imageImport';
+import optionBtn from '../../utils/imageImport';
 import styles from './index.module.scss';
 
 const Option = () => {
   const [selectedColor, setSelectedColor] = useState(null);
 
   const handleColorSelect = color => {
-    setSelectedColor(color);
+    setSelectedColor(color === selectedColor ? null : color);
   };
 
   return (
     <div className={styles.colorOption}>
-      <div
+      <button
+        type="button"
         className={`${styles.colorPalette} ${styles.beige}`}
         onClick={() => handleColorSelect('beige')}
       >
-        <button className={styles.button}>
+        {selectedColor === 'beige' && (
           <img src={optionBtn} alt="option button" />
-        </button>
-      </div>
-      <div
+        )}
+      </button>
+      <button
+        type="button"
         className={`${styles.colorPalette} ${styles.purple}`}
         onClick={() => handleColorSelect('purple')}
       >
-        <button className={styles.button}>
+        {selectedColor === 'purple' && (
           <img src={optionBtn} alt="option button" />
-        </button>
-      </div>
-      <div
+        )}
+      </button>
+      <button
+        type="button"
         className={`${styles.colorPalette} ${styles.blue}`}
         onClick={() => handleColorSelect('blue')}
       >
-        <button className={styles.button}>
+        {selectedColor === 'blue' && (
           <img src={optionBtn} alt="option button" />
-        </button>
-      </div>
-      <div
+        )}
+      </button>
+      <button
+        type="button"
         className={`${styles.colorPalette} ${styles.green}`}
         onClick={() => handleColorSelect('green')}
       >
-        <button className={styles.button}>
+        {selectedColor === 'green' && (
           <img src={optionBtn} alt="option button" />
-        </button>
-      </div>
+        )}
+      </button>
     </div>
   );
 };
