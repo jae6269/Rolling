@@ -1,11 +1,3 @@
-import Option from './components/Option';
-
 function App() {
-  return (
-    <div>
-      <Option />
-    </div>
-  );
+  return;
 }
-
-export default App;

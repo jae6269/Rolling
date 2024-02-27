@@ -38,9 +38,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.1.3"
   }
 }
