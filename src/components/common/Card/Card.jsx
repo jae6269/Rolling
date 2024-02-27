@@ -1,3 +1,4 @@
+import React from 'react';
 import './card.scss';
 /*
 data return format
@@ -17,17 +18,26 @@ data return format
 */
 
 function Card() {
-  const CARD_DATA_URL =
-    'https://rolling-api.vercel.app/4-20//recipients/32/messages/';
-  const testId = 1;
   return (
     <div className="card-container">
       <div className="profile">
-        <img src="" alt="profileImgae" />
+        <img
+          className="profile-img"
+          src="https://fastly.picsum.photos/id/311/200/200.jpg?hmac=CHiYGYQ3Xpesshw5eYWH7U0Kyl9zMTZLQuRDU4OtyH8"
+          alt="profileImgae"
+        />
+        <div className="profile-info">
+          <div className="profile-info-sender">
+            <span className="sender-from">From.</span>
+            <span className="sender-name">김재영</span>
+          </div>
+          {/* 관계 배지 들어갈 공간 */}
+        </div>
       </div>
-      <div className="separate-line"></div>
-      <div className="text"></div>
-      <p className="date"></p>
+
+      <div className="separate-line" />
+      <p className="text">가나다라마바사아자차카타파하</p>
+      <p className="date">2024.02.28</p>
     </div>
   );
 }

@@ -1,29 +1,93 @@
 .card-container {
-  width: 24rem;
-  height: 17.5rem;
-  padding: 1.75rem 1.5rem 1.5rem 1.5rem;
+  width: 384px;
+  height: 280px;
+  padding: 28px 24px 24px 24px;
   flex-shrink: 0;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  border-radius: 1rem;
+  gap: 16px;
+  border-radius: 16px;
   background: var(-white);
-  box-shadow: 0px 0.125rem 0.75rem 0rem rgba(0, 0, 0, 0.08);
+  box-shadow: 0rem 2px 12px 0px rgba(0, 0, 0, 0.08);
 
-  .profile { 
+  .profile {
     display: flex;
-align-items: flex-start;
-gap: 14px;
-}
-.separate-line{
+    align-items: flex-start;
+    gap: 14px;
 
-}
-.text {
-}
-.data {
-}
+    .profile-img {
+      display: flex;
+      width: 56px;
+      height: 56px;
+      align-items: center;
+      border-radius: 100px;
+      border: 1px solid var(--grayscale200, #eee);
+      background: var(--white, #fff);
+    }
 
+    .profile-info {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 6px;
+
+      .profile-info-sender {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+
+        .sender-from {
+          color: #000;
+          font-family: Pretendard;
+          font-size: 20px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 1.5rem; /* 120% */
+        }
+        .sender-name {
+          color: #000;
+          font-family: Pretendard;
+          font-size: 1.25rem;
+          font-style: normal;
+          font-weight: 700;
+          line-height: 1.5rem; /* 120% */
+        }
+      }
+    }
+  }
+
+  .separate-line {
+    width: 21rem;
+    height: 0.0625rem;
+    background: var(--gray-200, #eee);
+  }
+  .text {
+    width: 336px;
+    height: 106px;
+    flex-shrink: 0;
+    overflow: hidden;
+    color: var(--grayscale600, #4a4a4a);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+
+    /* Font/18 Regular */
+    font-family: Pretendard;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 28px; /* 155.556% */
+    letter-spacing: -0.18px;
+  }
+  .date {
+    color: var(--grayscale400, #999);
+
+    /* Font/12 Regular */
+    font-family: Pretendard;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 18px; /* 150% */
+    letter-spacing: -0.06px;
+  }
 }
-
-
