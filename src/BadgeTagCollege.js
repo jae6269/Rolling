@@ -1,5 +1,5 @@
 import React from 'react';
-import './BadgeTagCollege.css'; // CSS 파일 가져오기
+import './BadgeDesign.css'; // CSS 파일 가져오기
 
 function BadgeComponent() {
   return (
