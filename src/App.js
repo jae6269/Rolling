@@ -1,7 +1,8 @@
 import React from 'react';
+import Modal from './components/Modal/Modal';
 
 function App() {
-  return <div>app</div>;
+  return <Modal />;
 }
 
 export default App;
