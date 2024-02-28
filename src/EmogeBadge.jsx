@@ -1,7 +1,7 @@
 import React from 'react';
-import './BadgeDesign.css'; // CSS 파일 가져오기
+import './BadgeDesign.scss'; // sCSS 파일 가져오기
 
-function App() {
+function EmogeBadge() {
   return (
     <div className="badge">
       <div className="badge_emoji">
@@ -12,4 +12,4 @@ function App() {
   );
 }
 
-export default App;
+export default EmogeBadge;
