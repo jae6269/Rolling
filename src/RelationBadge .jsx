@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types'; 
 import './BadgeDesign.scss';
 
-function EmogeBadge({ relationship }) {
+function RealtionBadge({ relationship }) {
   // 파라미터를 제거하여 상위 스코프의 relationship 직접 사용
   const getBadgeDetails = () => {
     switch (relationship) {
@@ -31,8 +31,8 @@ function EmogeBadge({ relationship }) {
 }
 
 // PropTypes를 사용하여 relationship prop의 타입 검증
-EmogeBadge.propTypes = {
+RealtionBadge.propTypes = {
   relationship: PropTypes.string.isRequired,
 };
 
-export default EmogeBadge;
+export default RealtionBadge;
