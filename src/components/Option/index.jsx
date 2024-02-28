@@ -1,18 +1,34 @@
 import React, { useState } from 'react';
+import useFetchData from '../../hooks/useFetchData';
 import styles from './index.module.scss';
 import optionBtn from '../../utils/imageImport';
 
 const Option = () => {
   const [selectedOption, setSelectedOption] = useState('color');
   const [selectedButton, setSelectedButton] = useState(null);
+  const colorValues = ['beige', 'purple', 'blue', 'green']; // 컬러 값 배열
+
+  // API 응답 전체를 받습니다.
+  const apiResponse = useFetchData(
+    'https://rolling-api.vercel.app/background-images/',
+  );
+  // 응답에서 imageUrls 배열을 안전하게 추출합니다.
+  const imageUrls = apiResponse ? apiResponse.imageUrls : [];
 
   const handleToggle = option => {
     setSelectedOption(option);
-    setSelectedButton(null);
+    setSelectedButton(null); // 토글 변경 시 선택된 버튼 초기화
   };
 
-  const handleButtonClick = buttonId => {
-    setSelectedButton(buttonId);
+  const handleButtonClick = buttonIndex => {
+    setSelectedButton(buttonIndex);
+    if (selectedOption === 'image' && imageUrls[buttonIndex]) {
+      // 이미지 모드일 때 URL 전달
+      console.log('Image URL:', imageUrls[buttonIndex]);
+    } else if (selectedOption === 'color') {
+      // 컬러 모드일 때 컬러 값 전달
+      console.log('Color Value:', colorValues[buttonIndex]);
+    }
   };
 
   return (
@@ -35,69 +51,28 @@ const Option = () => {
       </div>
 
       <div className={styles.buttonsContainer}>
-        {/* 버튼 1 */}
-        <button
-          type="button"
-          className={styles.buttonStyle}
-          onClick={() => handleButtonClick('button1')}
-        >
-          {selectedButton === 'button1' && (
-            <img
-              src={optionBtn}
-              alt="Option Button"
-              className={styles.imageOverlay}
-            />
-          )}
-          버튼 1
-        </button>
-
-        {/* 버튼 2 */}
-        <button
-          type="button"
-          className={styles.buttonStyle}
-          onClick={() => handleButtonClick('button2')}
-        >
-          {selectedButton === 'button2' && (
-            <img
-              src={optionBtn}
-              alt="Option Button"
-              className={styles.imageOverlay}
-            />
-          )}
-          버튼 2
-        </button>
-
-        {/* 버튼 3 */}
-        <button
-          type="button"
-          className={styles.buttonStyle}
-          onClick={() => handleButtonClick('button3')}
-        >
-          {selectedButton === 'button3' && (
-            <img
-              src={optionBtn}
-              alt="Option Button"
-              className={styles.imageOverlay}
-            />
-          )}
-          버튼 3
-        </button>
-
-        {/* 버튼 4 */}
-        <button
-          type="button"
-          className={styles.buttonStyle}
-          onClick={() => handleButtonClick('button4')}
-        >
-          {selectedButton === 'button4' && (
-            <img
-              src={optionBtn}
-              alt="Option Button"
-              className={styles.imageOverlay}
-            />
-          )}
-          버튼 4
-        </button>
+        {[0, 1, 2, 3].map(index => (
+          <button
+            key={index}
+            type="button"
+            className={styles.buttonStyle}
+            style={{
+              backgroundImage:
+                selectedOption === 'image' && imageUrls[index]
+                  ? `url(${imageUrls[index]})`
+                  : 'none',
+            }}
+            onClick={() => handleButtonClick(index)}
+          >
+            {selectedButton === index && (
+              <img
+                src={optionBtn}
+                alt="Option Button"
+                className={styles.imageOverlay}
+              />
+            )}
+          </button>
+        ))}
       </div>
     </div>
   );
