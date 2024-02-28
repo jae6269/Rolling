@@ -1,14 +1,14 @@
 import React from 'react';
-import './BadgeTagFriends.css'; // CSS 파일 가져오기
+import './BadgeTagFriends.css';
 
-function BadgeComponent() {
+function BadgeTagFriends() {
   return (
-    <div className="container">
-    <div className='text'>
+    <div className="friends-container">
+      <div className='friends-text'>
         친구
-    </div>
+      </div>
     </div>
   );
 }
 
-export default BadgeComponent;
+export default BadgeTagFriends;

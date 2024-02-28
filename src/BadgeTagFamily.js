@@ -1,14 +1,14 @@
 import React from 'react';
 import './BadgeTagFamily.css'; // CSS 파일 가져오기
 
-function BadgeComponent() {
+function FamilyBadge() {
   return (
-    <div className="container">
-    <div className='text'>
-        가족
-    </div>
+    <div className="family-container">
+      <div className='family-text'>
+          가족
+      </div>
     </div>
   );
 }
 
-export default BadgeComponent;
+export default FamilyBadge;
