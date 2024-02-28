@@ -3,8 +3,12 @@ import classNames from 'classnames';
 import './card.scss';
 import { formatCardCreatedDate } from '../../../utils/formatDataFunctions';
 /*
-data format
+카드 컴포넌트
+props는 PostPage에서 
+recentMessages 배열의 객체들을
+map으로 하나씩 내려줍니다
 
+개별 데이터 형식:
 {
 	"id": 32,
 	"recipientId": 2,
@@ -15,17 +19,17 @@ data format
 	"font": "Pretendard",
   "createdAt": "2023-11-01T08:05:25.399056Z"
 }
-
-
 */
-
 function Card({ props }) {
   const { sender, profileImageURL, relationship, content, font, createdAt } =
     props;
   const date = formatCardCreatedDate(createdAt);
+  const containerClasses = classNames('card-container', {
+    [`font-${font}`]: font, // font prop에 따라 클래스를 동적으로 추가
+  });
 
   return (
-    <div className="card-container">
+    <div className={containerClasses}>
       <div className="profile">
         <img className="profile-img" src={profileImageURL} alt="profileImgae" />
         <div className="profile-info">

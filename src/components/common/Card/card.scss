@@ -14,6 +14,16 @@ $default-font: 'Pretendard';
   box-shadow: 0rem 2px 12px 0px rgba(0, 0, 0, 0.08);
   font-family: $default-font;
 
+  // font prop을 사용하여 폰트를 설정하는 mixin
+  @mixin setFont($font) {
+    font-family: $font;
+  }
+
+  // font prop이 전달된 경우 해당 폰트를 적용하는 mixin
+  @if $font != null {
+    @include setFont($font);
+  }
+
   .profile {
     display: flex;
     align-items: flex-start;
@@ -42,6 +52,7 @@ $default-font: 'Pretendard';
 
         .sender-from {
           color: #000;
+          font-family: inherit;
           font-size: 20px;
           font-style: normal;
           font-weight: 400;
@@ -49,6 +60,7 @@ $default-font: 'Pretendard';
         }
         .sender-name {
           color: #000;
+          font-family: inherit;
           font-size: 1.25rem;
           font-style: normal;
           font-weight: 700;
@@ -68,10 +80,12 @@ $default-font: 'Pretendard';
     height: 106px;
     flex-shrink: 0;
     overflow: hidden;
+
     color: var(--grayscale600, #4a4a4a);
     text-overflow: ellipsis;
     white-space: nowrap;
     /* Font/18 Regular */
+    font-family: inherit;
     font-size: 18px;
     font-style: normal;
     font-weight: 400;
@@ -81,6 +95,7 @@ $default-font: 'Pretendard';
   .date {
     color: var(--grayscale400, #999);
     /* Font/12 Regular */
+    font-family: inherit;
     font-size: 12px;
     font-style: normal;
     font-weight: 400;
