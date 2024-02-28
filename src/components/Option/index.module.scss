@@ -1,51 +1,51 @@
-.colorOption {
-  display: grid;
-  grid-template-columns: repeat(4, 10.5rem);
-  gap: 1rem;
-  height: 45rem;
-  width: 10.5rem;
+// .colorOption {
+//   display: grid;
+//   grid-template-columns: repeat(4, 10.5rem);
+//   gap: 1rem;
+//   height: 45rem;
+//   width: 10.5rem;
 
-  //모바일 반응형
-  @media screen and (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.75rem;
-    height: 20rem;
-    width: 20rem;
-  }
-}
+//   //모바일 반응형
+//   @media screen and (max-width: 768px) {
+//     grid-template-columns: repeat(2, 1fr);
+//     gap: 0.75rem;
+//     height: 20rem;
+//     width: 20rem;
+//   }
+// }
 
-.colorPalette {
-  width: 10.5rem;
-  height: 10.5rem;
-  border-radius: 1rem;
-  border: none;
+// .colorPalette {
+//   width: 10.5rem;
+//   height: 10.5rem;
+//   border-radius: 1rem;
+//   border: none;
 
-  //모바일 반응형
-  @media screen and (max-width: 768px) {
-    height: 9.625rem;
-    width: 9.625rem;
-  }
-}
+//   //모바일 반응형
+//   @media screen and (max-width: 768px) {
+//     height: 9.625rem;
+//     width: 9.625rem;
+//   }
+// }
 
-.beige {
-  background-color: var(--orange200);
-}
+// .beige {
+//   background-color: var(--orange200);
+// }
 
-.purple {
-  background-color: var(--purple200);
-}
+// .purple {
+//   background-color: var(--purple200);
+// }
 
-.blue {
-  background-color: var(--blue200);
-}
+// .blue {
+//   background-color: var(--blue200);
+// }
 
-.green {
-  background-color: var(--green200);
-}
+// .green {
+//   background-color: var(--green200);
+// }
 
-.button {
-  img {
-    width: 2.75rem;
-    height: 2.75rem;
-  }
-}
+// .button {
+//   img {
+//     width: 2.75rem;
+//     height: 2.75rem;
+//   }
+// }

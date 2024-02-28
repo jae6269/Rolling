@@ -1,7 +1,12 @@
 import React from 'react';
+import Option from './components/Option';
 
 function App() {
-  return <div>app</div>;
+  return (
+    <div>
+      <Option />
+    </div>
+  );
 }
 
 export default App;
