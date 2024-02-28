@@ -1,0 +1,40 @@
+/* Badge.css */
+.badge {
+    width: 66px;
+    height: 36px;
+    padding: 8px 12px; /* top and bottom padding is 8px, left and right padding is 12px */
+    border-radius: 32px; /* fully rounded edges */
+    display: inline-flex; /* use flexbox for inline layout */
+    align-items: center; /* vertical alignment */
+    justify-content: center; /* horizontal alignment */
+    gap: 10px; /* space between child elements */
+    /* Add other properties like background-color, color, etc., as needed */
+    background: rgba(0, 0, 0, 0.54);
+
+  }
+  .badge_emoji{
+    width: Hug (42px);
+height: Hug (20px);
+gap: 2px;
+display: flex;
+
+  }
+  .ic{
+    width: 20px;
+height: 20px;
+padding: 0px, 2px, 0px, 2px;
+
+  }
+  .img_text{
+    width: 20px;
+height: 20px;
+font-family: Pretendard;
+font-size: 16px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: left;
+color: rgba(255, 255, 255, 1);
+
+
+  }
