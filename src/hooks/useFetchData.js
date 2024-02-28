@@ -10,7 +10,7 @@ function useFetchData(url) {
       try {
         const response = await fetch(url);
         const result = await response.json();
-        setData([...result.data]);
+        setData(result);
       } catch (error) {
         console.log(`${url}에 대한 fetch error : ${error}`);
       }
