@@ -1,7 +1,9 @@
 import React from 'react';
+import classNames from 'classnames';
 import './card.scss';
+import { formatCardCreatedDate } from '../../../utils/formatDataFunctions';
 /*
-data return format
+data format
 
 {
 	"id": 32,
@@ -17,27 +19,27 @@ data return format
 
 */
 
-function Card() {
+function Card({ props }) {
+  const { sender, profileImageURL, relationship, content, font, createdAt } =
+    props;
+  const date = formatCardCreatedDate(createdAt);
+
   return (
     <div className="card-container">
       <div className="profile">
-        <img
-          className="profile-img"
-          src="https://fastly.picsum.photos/id/311/200/200.jpg?hmac=CHiYGYQ3Xpesshw5eYWH7U0Kyl9zMTZLQuRDU4OtyH8"
-          alt="profileImgae"
-        />
+        <img className="profile-img" src={profileImageURL} alt="profileImgae" />
         <div className="profile-info">
           <div className="profile-info-sender">
             <span className="sender-from">From.</span>
-            <span className="sender-name">김재영</span>
+            <span className="sender-name">{sender}</span>
           </div>
           {/* 관계 배지 들어갈 공간 */}
         </div>
       </div>
 
       <div className="separate-line" />
-      <p className="text">가나다라마바사아자차카타파하</p>
-      <p className="date">2024.02.28</p>
+      <p className="text">{content}</p>
+      <p className="date">{date}</p>
     </div>
   );
 }
