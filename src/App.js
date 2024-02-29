@@ -1,7 +1,12 @@
 import React from 'react';
+import CardList from './components/CardList';
 
 function App() {
-  return <div>app</div>;
+  return (
+    <div>
+      <CardList />
+    </div>
+  );
 }
 
 export default App;

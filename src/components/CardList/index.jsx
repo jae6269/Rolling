@@ -1,45 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Card from './Card';
+import useFetchData from '../../hooks/useFetchData';
 
-const RecipientList = () => {
-  const [recipients, setRecipients] = useState([]);
-  const [loading, setLoading] = useState(true);
+const CardList = () => {
+  // constant만들면 수정예정
+  const url = 'https://rolling-api.vercel.app/2-1/recipients/?limit=8&offset=8';
+  const recipientsData = useFetchData(url);
 
-  useEffect(() => {
-    const fetchRecipients = async () => {
-      try {
-        const response = await fetch(
-          'https://rolling-api.vercel.app/0-3/recipients/?limit=8&sort=like',
-        );
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        setRecipients(data.results);
-      } catch (error) {
-        console.error(
-          'There has been a problem with your fetch operation:',
-          error,
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
+  // recipientsData가 유효하고 results 배열이 존재하는지 확인
+  const recipients =
+    recipientsData && recipientsData.results ? recipientsData.results : [];
 
-    fetchRecipients();
-  }, []);
-
-  if (loading) {
+  // 로딩 상태나 데이터가 없는 상태를 처리
+  if (!recipientsData || recipients.length === 0) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="recipient-list">
       {recipients.map(recipient => (
-        <RecipientCard key={recipient.id} {...recipient} />
+        <Card
+          key={recipient.id}
+          id={recipient.id}
+          name={recipient.name}
+          backgroundColor={recipient.backgroundColor}
+          backgroundImageURL={recipient.backgroundImageURL}
+          messageCount={recipient.messageCount}
+          topReactions={recipient.topReactions}
+        />
       ))}
     </div>
   );
 };
 
-export default RecipientList;
+export default CardList;

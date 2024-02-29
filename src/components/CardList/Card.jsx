@@ -18,12 +18,12 @@ const Card = ({
       <div className="card-body">
         <div className="message-count">{messageCount}명이 작성했어요!</div>
       </div>
-      <div className="card-footer">
+      {/* <div className="card-footer">
         {topReactions
           .map
           // 버튼 컴포넌트 들어갈 예정
           ()}
-      </div>
+      </div> */}
     </div>
   );
 };
