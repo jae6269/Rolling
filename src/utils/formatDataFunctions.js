@@ -4,7 +4,7 @@
 // 함수명 : formatXData
 // 예시 : formatCardData, formatProfileData
 
-export function formatCardCreatedDate(createdAt) {
+function formatCardCreatedDate(createdAt) {
   // "createdAt": "2023-11-01T08:05:25.399056Z"
 
   // 주어진 형식의 날짜 문자열을 Date 객체로 변환
@@ -19,3 +19,5 @@ export function formatCardCreatedDate(createdAt) {
   // 포맷된 날짜 문자열 반환 (예: 2023-11-01 -> 2023.11.01)
   return `${date.getFullYear()}.${formattedMonth}.${formattedDay}`;
 }
+
+export default formatCardCreatedDate;

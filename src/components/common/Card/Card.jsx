@@ -1,7 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import './card.scss';
-import { formatCardCreatedDate } from '../../../utils/formatDataFunctions';
+import formatCardCreatedDate from '../../../utils/formatDataFunctions';
 import RelationBadge from '../badge/RelationBadge ';
 /*
 카드 컴포넌트
