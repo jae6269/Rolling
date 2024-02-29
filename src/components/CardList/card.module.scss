@@ -1,0 +1,34 @@
+.card {
+  border-radius: 10px; // 예시 값, 수정 가능
+  padding: 24px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); // 카드에 그림자 효과 추가
+  color: #333; // 글자색, 수정 가능
+  margin: 1rem;
+  overflow: hidden; // 배경 이미지가 border-radius에 맞춰 잘리도록
+  transition: transform 0.2s ease-in-out; // 호버 효과를 위한 준비
+  width: 275px;
+  height: 260px;
+
+  &:hover {
+    transform: translateY(-5px); // 호버 시 위로 약간 이동
+  }
+
+  // 카드의 헤더
+  .cardHeader {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+  }
+
+  // 카드 본문
+  .cardBody {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  // 메시지 카운트 부분
+  .messageCount {
+    color: #666; // 글자색, 수정 가능
+    margin-top: 0.5rem;
+  }
+}

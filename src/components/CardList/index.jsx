@@ -1,10 +1,12 @@
 import React from 'react';
 import Card from './Card';
 import useFetchData from '../../hooks/useFetchData';
+import styles from './index.module.scss';
 
 const CardList = () => {
   // constant만들면 수정예정
-  const url = 'https://rolling-api.vercel.app/2-1/recipients/?limit=8&offset=8';
+  const url =
+    'https://rolling-api.vercel.app/2-6/recipients/?limit=16&offset=16&sort=like';
   const recipientsData = useFetchData(url);
 
   // recipientsData가 유효하고 results 배열이 존재하는지 확인
@@ -17,7 +19,7 @@ const CardList = () => {
   }
 
   return (
-    <div className="recipient-list">
+    <div className={styles.recipientList}>
       {recipients.map(recipient => (
         <Card
           key={recipient.id}

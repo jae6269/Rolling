@@ -1,4 +1,6 @@
 import React from 'react';
+import COLOR_MAPPINGS from '../../constants/colors';
+import styles from './card.module.scss';
 
 const Card = ({
   name,
@@ -8,17 +10,21 @@ const Card = ({
   topReactions,
 }) => {
   const style = {
-    backgroundColor,
+    backgroundColor: COLOR_MAPPINGS[backgroundColor],
     backgroundImage: `url(${backgroundImageURL})`,
   };
 
   return (
-    <div className="card" style={style}>
-      <div className="card-header">To. {name}</div>
-      <div className="card-body">
-        <div className="message-count">{messageCount}명이 작성했어요!</div>
+    <div className={styles.card} style={style}>
+      <div>
+        <div className={styles.cardHeader}>To. {name}</div>
+        <div className={styles.cardBody}>
+          <div className={styles.messageCount}>
+            {messageCount}명이 작성했어요!
+          </div>
+        </div>
       </div>
-      {/* <div className="card-footer">
+      {/* <div className={styles.cardFooter}>
         {topReactions
           .map
           // 버튼 컴포넌트 들어갈 예정
