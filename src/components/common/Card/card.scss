@@ -1,100 +1,57 @@
 $default-font: 'Pretendard';
 
 .card-container {
-  width: 384px;
-  height: 280px;
-  padding: 28px 24px 24px 24px;
+  width: 24rem;
+  height: 17.5rem;
+  padding: 1.75rem 1.5rem 1.5rem 1.5rem;
   flex-shrink: 0;
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  border-radius: 16px;
-  background: var(-white);
-  box-shadow: 0rem 2px 12px 0px rgba(0, 0, 0, 0.08);
+  gap: 1rem;
+  border-radius: 1rem;
+  background: var(--white);
+  box-shadow: 0rem 0.125rem 0.75rem 0rem rgba(0, 0, 0, 0.08);
   font-family: $default-font;
+  border: none;
+  cursor: pointer;
 
   // font prop을 사용하여 폰트를 설정하는 mixin
   @mixin setFont($font) {
     font-family: $font;
   }
 
-  .profile {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-
-    .profile-img {
-      display: flex;
-      width: 56px;
-      height: 56px;
-      align-items: center;
-      border-radius: 100px;
-      border: 1px solid var(--grayscale200, #eee);
-      background: var(--white, #fff);
-    }
-
-    .profile-info {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 6px;
-
-      .profile-info-sender {
-        display: flex;
-        align-items: flex-start;
-        gap: 6px;
-
-        .sender-from {
-          color: #000;
-          font-family: inherit;
-          font-size: 20px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 1.5rem; /* 120% */
-        }
-        .sender-name {
-          color: #000;
-          font-family: inherit;
-          font-size: 1.25rem;
-          font-style: normal;
-          font-weight: 700;
-          line-height: 1.5rem; /* 120% */
-        }
-      }
-    }
-  }
-
   .separate-line {
     width: 21rem;
     height: 0.0625rem;
-    background: var(--gray-200, #eee);
+    background-color: var(--black);
   }
+
   .text {
-    width: 336px;
-    height: 106px;
+    width: 21rem;
+    height: 6.625rem;
     flex-shrink: 0;
     overflow: hidden;
-
+    text-align: start;
     color: var(--grayscale600, #4a4a4a);
     text-overflow: ellipsis;
     white-space: nowrap;
     /* Font/18 Regular */
     font-family: inherit;
-    font-size: 18px;
+    font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 28px; /* 155.556% */
-    letter-spacing: -0.18px;
+    line-height: 1.75rem; /* 155.556% */
+    letter-spacing: -0.0112rem;
   }
   .date {
     color: var(--grayscale400, #999);
     /* Font/12 Regular */
     font-family: inherit;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
-    line-height: 18px; /* 150% */
-    letter-spacing: -0.06px;
+    line-height: 1.125rem; /* 150% */
+    letter-spacing: -0.0037rem;
   }
 }

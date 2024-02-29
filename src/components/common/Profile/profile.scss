@@ -1,0 +1,45 @@
+.profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+
+  .profile-img {
+    display: flex;
+    width: 3.5rem;
+    height: 3.5rem;
+    align-items: center;
+    border-radius: 6.25rem;
+    border: 0.0625rem solid var(--grayscale200, #eee);
+    background: var(--white, #fff);
+  }
+
+  .profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.375rem;
+
+    .profile-info-sender {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.375rem;
+
+      .sender-from {
+        color: var(--black);
+        font-family: inherit;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1.5rem; /* 120% */
+      }
+      .sender-name {
+        color: var(--black);
+        font-family: inherit;
+        font-size: 1.25rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.5rem; /* 120% */
+      }
+    }
+  }
+}
