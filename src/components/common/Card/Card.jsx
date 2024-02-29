@@ -2,6 +2,7 @@ import React from 'react';
 import classNames from 'classnames';
 import './card.scss';
 import { formatCardCreatedDate } from '../../../utils/formatDataFunctions';
+import RelationBadge from '../badge/RelationBadge ';
 /*
 카드 컴포넌트
 props는 PostPage에서 
@@ -37,7 +38,7 @@ function Card({ props }) {
             <span className="sender-from">From.</span>
             <span className="sender-name">{sender}</span>
           </div>
-          {/* 관계 배지 들어갈 공간 */}
+          <RelationBadge relationship={relationship} />
         </div>
       </div>
 

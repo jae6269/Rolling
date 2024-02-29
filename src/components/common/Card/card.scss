@@ -19,11 +19,6 @@ $default-font: 'Pretendard';
     font-family: $font;
   }
 
-  // font prop이 전달된 경우 해당 폰트를 적용하는 mixin
-  @if $font != null {
-    @include setFont($font);
-  }
-
   .profile {
     display: flex;
     align-items: flex-start;
