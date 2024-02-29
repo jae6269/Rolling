@@ -1,8 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
-import './card.scss';
+import styles from './card.module.scss';
 import formatCardCreatedDate from '../../../utils/formatDataFunctions';
-import RelationBadge from '../badge/RelationBadge ';
 import Profile from '../Profile/Profile';
 /*
 카드 컴포넌트
@@ -26,9 +25,6 @@ function Card({ props }) {
   const { sender, profileImageURL, relationship, content, font, createdAt } =
     props;
   const date = formatCardCreatedDate(createdAt);
-  const containerClasses = classNames('card-container', {
-    [`font-${font}`]: font, // font prop에 따라 클래스를 동적으로 추가
-  });
 
   const handleModalOpen = e => {
     e.preventDefault();
@@ -38,18 +34,23 @@ function Card({ props }) {
   return (
     <button
       type="button"
-      className={containerClasses}
+      className={styles.container}
       onClick={handleModalOpen}
     >
       <Profile
         profileImageURL={profileImageURL}
         sender={sender}
         relationship={relationship}
+        font={font}
       />
 
-      <div className="separate-line" />
-      <p className="text">{content}</p>
-      <p className="date">{date}</p>
+      <hr className={styles.underline} />
+      <p className={styles.text} style={{ fontFamily: font }}>
+        {content}
+      </p>
+      <p className={styles.date} style={{ fontFamily: font }}>
+        {date}
+      </p>
     </button>
   );
 }

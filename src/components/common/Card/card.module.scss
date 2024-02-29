@@ -1,6 +1,4 @@
-$default-font: 'Pretendard';
-
-.card-container {
+.container {
   width: 24rem;
   height: 17.5rem;
   padding: 1.75rem 1.5rem 1.5rem 1.5rem;
@@ -12,19 +10,13 @@ $default-font: 'Pretendard';
   border-radius: 1rem;
   background: var(--white);
   box-shadow: 0rem 0.125rem 0.75rem 0rem rgba(0, 0, 0, 0.08);
-  font-family: $default-font;
   border: none;
   cursor: pointer;
 
-  // font prop을 사용하여 폰트를 설정하는 mixin
-  @mixin setFont($font) {
-    font-family: $font;
-  }
-
-  .separate-line {
+  .underline {
     width: 21rem;
     height: 0.0625rem;
-    background-color: var(--black);
+    background: var(--grayscale200);
   }
 
   .text {
@@ -37,7 +29,6 @@ $default-font: 'Pretendard';
     text-overflow: ellipsis;
     white-space: nowrap;
     /* Font/18 Regular */
-    font-family: inherit;
     font-size: 1.125rem;
     font-style: normal;
     font-weight: 400;
@@ -47,7 +38,6 @@ $default-font: 'Pretendard';
   .date {
     color: var(--grayscale400, #999);
     /* Font/12 Regular */
-    font-family: inherit;
     font-size: 0.75rem;
     font-style: normal;
     font-weight: 400;
