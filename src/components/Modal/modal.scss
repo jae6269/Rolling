@@ -18,5 +18,15 @@
     border-radius: 16px;
     background: #fff;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .modal-info {
+      width: 599px;
+      height: 116px;
+      flex-shrink: 0;
+    }
   }
 }

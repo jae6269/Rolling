@@ -24,7 +24,14 @@ function Modal({ props }) {
     props;
   return (
     <div className="modal-background">
-      <div className="modal-container" />
+      <div className="modal-container">
+        <div className="modal-info">d</div>
+        <div className="modal-separate-line">d</div>
+        <div className="modal-text">d</div>
+        <button type="button" className="modal-button">
+          확인
+        </button>
+      </div>
     </div>
   );
 }
