@@ -1,0 +1,122 @@
+/* Badge.css */
+.badge {
+  width: 66px;
+  height: 36px;
+  padding: 8px 12px; /* top and bottom padding is 8px, left and right padding is 12px */
+  border-radius: 32px; /* fully rounded edges */
+  display: inline-flex; /* use flexbox for inline layout */
+  align-items: center; /* vertical alignment */
+  justify-content: center; /* horizontal alignment */
+  gap: 10px; /* space between child elements */
+  /* Add other properties like background-color, color, etc., as needed */
+  background: rgba(0, 0, 0, 0.54);
+}
+.badge_emoji {
+  width: Hug (42px);
+  height: Hug (20px);
+  gap: 2px;
+  display: flex;
+}
+.ic {
+  width: 20px;
+  height: 20px;
+  padding: 0px, 2px, 0px, 2px;
+}
+.img_text {
+  width: 20px;
+  height: 20px;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+}
+.badgeCollegeContainer {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  justify-content: center; /* 가로 방향 중앙 정렬 */
+  align-items: center; /* 세로 방향 중앙 정렬 */
+  width: 41px; /* 구체적인 값 지정 */
+  height: 20px; /* 구체적인 값 지정 */
+  padding: 0px 8px;
+  border-radius: 4px;
+  background: rgba(248, 240, 255, 1);
+}
+
+.badgeCollegeText {
+  width: 25px;
+  height: 20px;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: rgba(153, 53, 255, 1);
+}
+.familyContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 41px;
+  height: 20px;
+  padding: 0px 8px;
+  border-radius: 4px;
+  background: rgba(228, 251, 220, 1);
+}
+
+.familyText {
+  width: 25px;
+  height: 20px;
+  font-family: Pretendard;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: rgba(43, 166, 0, 1);
+}
+
+.friendsContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 41px;
+  height: 20px;
+  padding: 0px 8px;
+  border-radius: 4px;
+  background: rgba(226, 245, 255, 1);
+}
+
+.friendsText {
+  width: 1.5625rem;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: rgba(0, 162, 254, 1);
+}
+.container {
+  display: flex; /* Flexbox 레이아웃 사용 */
+  justify-content: center; /* 가로 방향 중앙 정렬 */
+  align-items: center; /* 세로 방향 중앙 정렬 */
+  width: 2.5625rem; /* 'Hug' 대신 구체적인 값 지정 */
+  height: 1.25rem; /* 'Hug' 대신 구체적인 값 지정 */
+  padding: 0rem 0.5rem;
+  border-radius: 4px;
+  background: rgba(255, 240, 214, 1);
+}
+
+.text {
+  width: 1.5625rem;
+  height: 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  line-height: 1.25rem;
+  letter-spacing: -0.005em;
+  text-align: center;
+  color: rgba(255, 136, 50, 1);
+}
