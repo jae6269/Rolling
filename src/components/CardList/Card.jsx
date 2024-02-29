@@ -6,6 +6,7 @@ const Card = ({
   name,
   backgroundColor,
   backgroundImageURL,
+  profileImageURL,
   messageCount,
   topReactions,
 }) => {
@@ -17,19 +18,26 @@ const Card = ({
   return (
     <div className={styles.card} style={style}>
       <div>
-        <div className={styles.cardHeader}>To. {name}</div>
+        <h2 className={styles.cardHeader}>To. {name}</h2>
         <div className={styles.cardBody}>
-          <div className={styles.messageCount}>
-            {messageCount}명이 작성했어요!
+          <div className={styles.ProfileImage}>
+            {/* profile image 컴포넌트 */}
           </div>
+          <p className={styles.messageContainer}>
+            <span className={styles.messageCount}>{messageCount}</span>명이
+            작성했어요!
+          </p>
         </div>
       </div>
-      {/* <div className={styles.cardFooter}>
+      <div className={styles.cardFooter}>
+        <hr className={styles.separator} />
+        {/* <div >
         {topReactions
           .map
           // 버튼 컴포넌트 들어갈 예정
           ()}
       </div> */}
+      </div>
     </div>
   );
 };
