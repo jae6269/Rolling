@@ -1,8 +1,10 @@
 import React from 'react';
-// SCSS 모듈을 스타일 객체로 임포트
+import PropTypes from 'prop-types';
+
 import styles from './BadgeDesign.module.scss';
 
-function EmogeBadge() {
+// eslint-disable-next-line react/prop-types
+function EmojiBadge({ children }) {
   return (
     <div className={styles.badge}>
       <div className={styles.badge_emoji}>
@@ -13,4 +15,4 @@ function EmogeBadge() {
   );
 }
 
-export default EmogeBadge;
+export default EmojiBadge;
