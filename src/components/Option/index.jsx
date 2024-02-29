@@ -5,7 +5,7 @@ import optionBtn from '../../utils/imageImport';
 
 const Option = () => {
   const [selectedOption, setSelectedOption] = useState('color');
-  const [selectedButton, setSelectedButton] = useState(null);
+  const [selectedButton, setSelectedButton] = useState(0);
   const colorValues = ['beige', 'purple', 'blue', 'green'];
 
   // url 공통 상수 파일 만들면 수정
@@ -16,9 +16,9 @@ const Option = () => {
 
   const handleToggle = option => {
     setSelectedOption(option);
-    setSelectedButton(null);
+    setSelectedButton(0);
   };
-
+  // console.log 나중에 데이터 연결하면 수정 예정
   const handleButtonClick = buttonIndex => {
     setSelectedButton(buttonIndex);
     if (selectedOption === 'image' && imageUrls[buttonIndex]) {
@@ -53,7 +53,7 @@ const Option = () => {
           <button
             key={index}
             type="button"
-            className={`${styles.buttonStyle} ${selectedOption === 'color' ? styles[colorValues[index]] : ''}`}
+            className={`${styles.buttonStyle} ${selectedOption === 'color' ? styles[colorValues[index]] : ''} ${selectedButton === index ? styles.selectedImage : ''}`}
             style={{
               backgroundImage:
                 selectedOption === 'image' && imageUrls[index]
