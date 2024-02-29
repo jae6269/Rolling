@@ -10,7 +10,6 @@ const Card = ({
   messageCount,
   topReactions,
 }) => {
-  // 스타일 객체 정의
   const style = {};
 
   // 배경 색상이 있을 경우 해당 색상 적용

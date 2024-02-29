@@ -5,6 +5,8 @@ import {
   purpleShadow,
 } from '../utils/imageImport';
 
+// 배경컬러와 관련된 상수
+// 페이지, 옵션등에서 사용
 const COLOR_MAPPINGS = {
   beige: 'var(--orange200)',
   purple: 'var(--purple200)',
