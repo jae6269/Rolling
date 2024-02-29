@@ -1,6 +1,7 @@
 import React from 'react';
-import './modal.scss';
-
+import styles from './modal.module.scss';
+import Profile from '../common/Profile/Profile';
+import formatCardCreatedDate from '../../utils/formatDataFunctions';
 /*
 카드 컴포넌트를 확대했을때 나오는 모달입니다.
 
@@ -22,13 +23,21 @@ import './modal.scss';
 function Modal({ props }) {
   const { sender, profileImageURL, relationship, content, font, createdAt } =
     props;
+  const date = formatCardCreatedDate(createdAt);
   return (
-    <div className="modal-background">
-      <div className="modal-container">
-        <div className="modal-info">d</div>
-        <div className="modal-separate-line">d</div>
-        <div className="modal-text">d</div>
-        <button type="button" className="modal-button">
+    <div className={styles.background}>
+      <div className={styles.container}>
+        <div className={styles.information}>
+          <Profile
+            profileImageURL={profileImageURL}
+            sender={sender}
+            relationship={relationship}
+            font={font}
+          />
+          <p className={styles.date}>{date}</p>
+        </div>
+        <div className={styles.text}>{content}</div>
+        <button type="button" className={styles.button}>
           확인
         </button>
       </div>
