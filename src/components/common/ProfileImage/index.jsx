@@ -1,23 +1,10 @@
 import React from 'react';
-import useFetchData from '../../../hooks/useFetchData';
+import styles from './index.module.scss';
 
-function ProfileImage({ width, height }) {
-  const imageData = useFetchData(
-    'https://rolling-api.vercel.app/profile-images',
-  );
-
+function ProfileImage({ url, width, height }) {
   return (
-    <div>
-      {imageData &&
-        imageData.map((imageUrl, index) => (
-          <img
-            key={index}
-            src={imageUrl}
-            alt="Profile"
-            width={width}
-            height={height}
-          />
-        ))}
+    <div className={styles.profileImg}>
+      <img src={url} alt="Profile" width={width} height={height} />
     </div>
   );
 }
