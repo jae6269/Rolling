@@ -15,5 +15,6 @@
     "no-unused-vars": "off",
     // 클릭 이벤트가 키보드 이벤트를 함께 가져야 한다는 규칙을 비활성화합니다.
     "jsx-a11y/click-events-have-key-events": "off",
+    "react/prop-types": "off",
   },
 }
