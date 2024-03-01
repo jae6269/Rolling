@@ -8,8 +8,6 @@ const CardList = ({ recipients }) => {
     return <div>Loading...</div>;
   }
 
-  console.log(recipients);
-
   return (
     <div className={styles.recipientList}>
       {recipients.map(recipient => (

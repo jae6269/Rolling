@@ -2,6 +2,7 @@ import React from 'react';
 import { COLOR_MAPPINGS, COLOR_IMAGES_MAPPINGS } from '../../constants/colors';
 import styles from './card.module.scss';
 import ProfileImage from '../common/ProfileImage';
+import EmojiBadge from '../common/badge/EmojiBadge';
 
 const Card = ({
   name,
@@ -73,6 +74,17 @@ const Card = ({
         <div className={styles.cardFooter}>
           <hr className={styles.separator} />
           {/* 반응 버튼 컴포넌트가 들어갈 위치 */}
+          {topReactions && topReactions.length > 0 && (
+            <div className={styles.emojiBadge}>
+              {topReactions.map(reaction => (
+                <EmojiBadge
+                  key={reaction.id}
+                  emoji={reaction.emoji}
+                  count={reaction.count}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </div>
       {!backgroundImageURL && shadowImage && (
