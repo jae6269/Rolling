@@ -1,5 +1,4 @@
 import React from 'react';
-import classNames from 'classnames';
 import styles from './card.module.scss';
 import formatCardCreatedDate from '../../../utils/formatDataFunctions';
 import Profile from '../Profile/Profile';

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './index.module.scss';
+import styles from './headerService.module.scss';
 import EmojiPicker from 'emoji-picker-react';
 import addEmoji from '../../../assets/add-emoji.svg';
 import arrowDown from '../../../assets/arrow_down.svg';
