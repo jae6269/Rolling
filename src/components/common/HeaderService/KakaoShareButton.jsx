@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import styles from './index.module.scss';
+
 // kakao 기능 동작을 위해 넣어준다.
 const { Kakao } = window;
 
