@@ -43,7 +43,7 @@ const Card = ({
 
   return (
     <div
-      className={`${styles.card} ${styles[backgroundClassName]}`} // 동적 클래스 추가
+      className={`${styles.card} ${styles[backgroundClassName]}`}
       style={style}
     >
       <div className={styles.cardBody}>
@@ -73,7 +73,6 @@ const Card = ({
 
         <div className={styles.cardFooter}>
           <hr className={styles.separator} />
-          {/* 반응 버튼 컴포넌트가 들어갈 위치 */}
           {topReactions && topReactions.length > 0 && (
             <div className={styles.emojiBadge}>
               {topReactions.map(reaction => (
