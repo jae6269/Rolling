@@ -1,9 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
 import styles from './BadgeDesign.module.scss';
 
-// eslint-disable-next-line react/prop-types
 function EmojiBadge({ children }) {
   return (
     <div className={styles.badge}>
