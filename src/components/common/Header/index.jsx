@@ -3,8 +3,8 @@ import React from 'react';
 import logoImg from '../../../assets/logo-img.svg';
 import styles from './index.module.scss';
 
-// <Header buttonOn={true} /> 이런식으로 사용
-function Header({ buttonOn }) {
+// <Header buttonOn={false} /> 이런식으로 사용
+function Header({ buttonOn = true }) {
   return (
     <div className={styles.header}>
       <div className={styles.headerinside}>
