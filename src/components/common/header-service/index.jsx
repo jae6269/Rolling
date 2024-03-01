@@ -12,7 +12,7 @@ import ProfileImages from '../ProfileImages/ProfileImages';
 import EmojiBadge from '../Badge/EmojiBadge';
 // import useFetchData from "../../../hooks/useFetchData";
 
-//나중에 외부로 뺄 코드
+//나중에 외부로 뺄 코드들
 // const [emojiClicked, setEmojiClicked] = useState(false);
 //   const [reactionsResult, setReactionsResult] = useState([]);
 //   const [recipientResult, setRecipientResult] = useState([]);
