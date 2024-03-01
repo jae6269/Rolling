@@ -4,7 +4,7 @@ import styles from './index.module.scss';
 // kakao 기능 동작을 위해 넣어준다.
 const { Kakao } = window;
 
-export default function KakaoShare() {
+export default function KakaoShareButton() {
   // 배포한 자신의 사이트
   const realUrl = '';
   // 로컬 주소 (localhost 3000 같은거)
@@ -15,7 +15,7 @@ export default function KakaoShare() {
     // init 해주기 전에 clean up 을 해준다.
     Kakao.cleanup();
     // 자신의 js 키를 넣어준다.
-    Kakao.init('c0000000000');
+    Kakao.init(process.env.REACT_APP_KAKAO_INIT_KEY);
     // 잘 적용되면 true 를 뱉는다.
     // console.log(Kakao.isInitialized());
   }, []);

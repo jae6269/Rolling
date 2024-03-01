@@ -6,8 +6,8 @@ import arrowDown from '../../../assets/arrow_down.svg';
 import shareButton from '../../../assets/share-button.svg';
 import verticalLine from '../../../assets/vertical-line.svg';
 import { useEffect, useRef, useState } from 'react';
-import CopyToClipboard from 'react-copy-to-clipboard';
-import KakaoShare from './KakaoShare';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+import KakaoShareButton from './KakaoShareButton';
 import ProfileImages from '../ProfileImages/ProfileImages';
 import EmojiBadge from '../Badge/EmojiBadge';
 // import useFetchData from "../../../hooks/useFetchData";
@@ -206,7 +206,7 @@ function HeaderService({
 
               {shareOn && (
                 <div className={styles.shareOptions}>
-                  <KakaoShare />
+                  <KakaoShareButton />
                   <CopyToClipboard text={shareLink} onCopy={handleCopyLink}>
                     <button className={styles.shareOption}>URL 공유</button>
                   </CopyToClipboard>

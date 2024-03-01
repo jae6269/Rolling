@@ -3,7 +3,6 @@ import styles from './profileImages.module.scss';
 import ProfileImage from '../ProfileImage';
 
 function ProfileImages({ recipientResult }) {
-  console.log(recipientResult.recentMessages);
   return (
     <div className={styles.profileImages}>
       {recipientResult.recentMessages.reverse().map((message, i) => {
