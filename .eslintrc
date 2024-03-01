@@ -6,6 +6,11 @@
     "prettier",
   ],
   "plugins": ["react", "prettier"],
+  "env": {
+    "node": true,
+    "jest": true,
+    "browser": true,
+  },
   "rules": {
     // .js와 .jsx 파일 사용
     "react/jsx-filename-extension": [1, { "extensions": [".jsx", ".js"] }],

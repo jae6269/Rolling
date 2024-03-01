@@ -1,6 +1,6 @@
-import React from 'react';
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import styles from './index.module.scss';
+
 // kakao 기능 동작을 위해 넣어준다.
 const { Kakao } = window;
 
@@ -43,8 +43,9 @@ export default function KakaoShareButton() {
   };
 
   return (
-    <>
+    <div>
       <button
+        type="button"
         className={styles.shareOption}
         onClick={() => {
           shareKakao();
@@ -52,6 +53,6 @@ export default function KakaoShareButton() {
       >
         카카오톡 공유
       </button>
-    </>
+    </div>
   );
 }

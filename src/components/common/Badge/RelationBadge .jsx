@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// SCSS 모듈을 객체로 임포트
 import styles from './BadgeDesign.module.scss';
 
 function RelationBadge({ relationship }) {

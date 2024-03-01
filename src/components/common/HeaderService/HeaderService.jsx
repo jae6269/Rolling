@@ -1,18 +1,19 @@
-import React from 'react';
-import styles from './headerService.module.scss';
+import React, { useEffect, useRef, useState } from 'react';
 import EmojiPicker from 'emoji-picker-react';
-import addEmoji from '../../../assets/add-emoji.svg';
-import arrowDown from '../../../assets/arrow_down.svg';
-import shareButton from '../../../assets/share-button.svg';
-import verticalLine from '../../../assets/vertical-line.svg';
-import { useEffect, useRef, useState } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import KakaoShareButton from './KakaoShareButton';
 import ProfileImages from '../ProfileImages/ProfileImages';
 import EmojiBadge from '../Badge/EmojiBadge';
+import styles from './headerService.module.scss';
+import {
+  addEmojiBtn,
+  arrowDownBtn,
+  shareBtn,
+  verticalLine,
+} from '../../../utils/imageImport';
 // import useFetchData from "../../../hooks/useFetchData";
 
-//나중에 외부로 뺄 코드들
+// 나중에 외부로 뺄 코드들
 // const [emojiClicked, setEmojiClicked] = useState(false);
 //   const [reactionsResult, setReactionsResult] = useState([]);
 //   const [recipientResult, setRecipientResult] = useState([]);
@@ -41,7 +42,7 @@ import EmojiBadge from '../Badge/EmojiBadge';
 //     reactionsFetchData();
 //     recipientFetchData();
 //   }, [emojiClicked]);
-//console.log(recipientResult),console.log(reactionsResult) 를 하면 빈 배열이 출력된 후 결과가 출력돼서 이렇게 씀
+// console.log(recipientResult),console.log(reactionsResult) 를 하면 빈 배열이 출력된 후 결과가 출력돼서 이렇게 씀
 // return( {recipientResult.length !== 0 && reactionsResult.length !== 0 && (
 //     <HeaderService
 //     recipientResult={recipientResult}
@@ -66,7 +67,29 @@ function HeaderService({
   const emojiPickerRef = useRef(null);
   const shareRef = useRef(null);
   const emojiRef = useRef(null);
+
   const shareLink = window.location.href; // 공유할 링크
+
+  // 이모지를 선택했을 때 실행할 함수
+  const handleEmojiClick = async e => {
+    const newEmoji = {
+      emoji: `${e.emoji}`,
+      type: 'increase',
+    };
+    await fetch(`${reactionsURL}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(newEmoji),
+    });
+    // 테스트용 코드
+    // const result = await response.text();
+    // console.log(result);
+
+    // emojiClicked 상태가 바뀌면 headerService 함수 외부에서 리액션 리스트를 업데이트 해준다.
+    setEmojiClicked(!emojiClicked);
+    setEmojiPickerOn(false);
+  };
+
   useEffect(() => {
     function handleClickOutside(event) {
       if (!emojiPickerRef.current.contains(event.target)) {
@@ -84,7 +107,6 @@ function HeaderService({
       document.removeEventListener('mousedown', handleClickOutside);
     };
   }, []);
-
   const toggleEmojiPicker = () => {
     setEmojiPickerOn(!emojiPickerOn);
   };
@@ -95,35 +117,14 @@ function HeaderService({
     setMoreEmojiOn(!moreEmojiOn);
   };
 
-  //이모지를 선택했을 때 실행할 함수
-  async function onEmojiClick(e) {
-    const newEmoji = {
-      emoji: `${e.emoji}`,
-      type: 'increase',
-    };
-    await fetch(`${reactionsURL}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newEmoji),
-    });
-    //테스트용 코드
-    // const result = await response.text();
-    // console.log(result);
-
-    //emojiClicked 상태가 바뀌면 headerService 함수 외부에서 리액션 리스트를 업데이트 해준다.
-    //(이모지를 클릭하면 바로바로 화면에 반영되게끔)
-    setEmojiClicked(!emojiClicked);
-    //선택창 닫기
-    setEmojiPickerOn(false);
-  }
-
-  function handleCopyLink() {
+  const handleCopyLink = () => {
     setUrlCopied(true); // 복사되었습니다 메시지 표시
     // 5초 후에 복사되었습니다 메시지 숨기기
     setTimeout(() => {
       setUrlCopied(false);
     }, 5000);
-  }
+  };
+
   return (
     <>
       <div className={styles.headerService}>
@@ -146,51 +147,55 @@ function HeaderService({
           />
           <div className={styles.emojiShare}>
             <div className={styles.emoji}>
-              {recipientResult.topReactions.map((reaction, index) => (
+              {recipientResult.topReactions.map(reaction => (
                 <EmojiBadge
-                  key={index} // 반복되는 컴포넌트의 key 값 설정
+                  key={reaction.id} // 반복되는 컴포넌트의 key 값 설정
                   emoji={reaction.emoji}
                   count={reaction.count}
                 />
               ))}
 
               <div className={styles.emojiContainer} ref={emojiRef}>
-                <button className={styles.arrowDown} onClick={toggleMoreEmoji}>
-                  <img src={arrowDown} alt="이모지 더보기" />
+                <button
+                  type="button"
+                  className={styles.arrowDown}
+                  onClick={toggleMoreEmoji}
+                >
+                  <img src={arrowDownBtn} alt="이모지 더보기" />
                 </button>
                 {moreEmojiOn && (
                   <div className={styles.emojiList}>
-                    {reactionsResult.results.map(reaction => {
-                      return (
-                        <EmojiBadge
-                          key={reaction.id}
-                          count={reaction.count}
-                          emoji={reaction.emoji}
-                        />
-                      );
-                    })}
+                    {reactionsResult.results.map(reaction => (
+                      <EmojiBadge
+                        key={reaction.id}
+                        count={reaction.count}
+                        emoji={reaction.emoji}
+                      />
+                    ))}
                   </div>
                 )}
               </div>
             </div>
             <div className={styles.emojiPicker} ref={emojiPickerRef}>
               <button
+                type="button"
                 className={styles.addEmojiMobile}
                 onClick={toggleEmojiPicker}
               >
-                <img src={addEmoji} alt="이모지 추가" />
+                <img src={addEmojiBtn} alt="이모지 추가" />
               </button>
               <button
+                type="button"
                 className={styles.addEmojiTablet}
                 onClick={toggleEmojiPicker}
               >
-                <img src={addEmoji} alt="이모지 추가" />
+                <img src={addEmojiBtn} alt="이모지 추가" />
                 추가
               </button>
               {emojiPickerOn && (
                 <EmojiPicker
                   className={styles.emojiPickerChild}
-                  onEmojiClick={onEmojiClick}
+                  onEmojiClick={handleEmojiClick}
                 />
               )}
             </div>
@@ -200,15 +205,21 @@ function HeaderService({
               alt="구분선"
             />
             <div className={styles.shareContainer} ref={shareRef}>
-              <button className={styles.share} onClick={toggleShare}>
-                <img src={shareButton} alt="공유하기" />
+              <button
+                type="button"
+                className={styles.share}
+                onClick={toggleShare}
+              >
+                <img src={shareBtn} alt="공유하기" />
               </button>
 
               {shareOn && (
                 <div className={styles.shareOptions}>
                   <KakaoShareButton />
                   <CopyToClipboard text={shareLink} onCopy={handleCopyLink}>
-                    <button className={styles.shareOption}>URL 공유</button>
+                    <button type="button" className={styles.shareOption}>
+                      URL 공유
+                    </button>
                   </CopyToClipboard>
                 </div>
               )}
