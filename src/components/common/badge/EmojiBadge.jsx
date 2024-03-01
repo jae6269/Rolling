@@ -1,5 +1,5 @@
-import React from "react";
-import styles from "./BadgeDesign.module.scss";
+import React from 'react';
+import styles from './BadgeDesign.module.scss';
 
 function EmojiBadge({ children, count }) {
   return (
