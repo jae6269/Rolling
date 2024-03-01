@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from './ListCard';
+import ListOfCard from './ListCard';
 import styles from './index.module.scss';
 
 const CardList = ({ recipients }) => {
@@ -11,7 +11,7 @@ const CardList = ({ recipients }) => {
   return (
     <div className={styles.recipientList}>
       {recipients.map(recipient => (
-        <Card
+        <ListOfCard
           key={recipient.id}
           recipient={recipient} // props를 객체 하나로 전달
         />

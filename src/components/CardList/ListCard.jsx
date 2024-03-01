@@ -35,7 +35,7 @@ import EmojiBadge from '../common/badge/EmojiBadge';
 //   ]
 // },
 
-const Card = ({
+const ListOfCard = ({
   recipient: {
     name,
     backgroundColor,
@@ -126,4 +126,4 @@ const Card = ({
   );
 };
 
-export default Card;
+export default ListOfCard;
