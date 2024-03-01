@@ -34,9 +34,13 @@ function Modal({ props }) {
             relationship={relationship}
             font={font}
           />
-          <p className={styles.date}>{date}</p>
+          <p className={styles.date} style={{ fontFamily: font }}>
+            {date}
+          </p>
         </div>
-        <div className={styles.text}>{content}</div>
+        <div className={styles.text} style={{ fontFamily: font }}>
+          {content}
+        </div>
         <button type="button" className={styles.button}>
           확인
         </button>
