@@ -4,7 +4,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import KakaoShareButton from './KakaoShareButton';
 import ProfileImages from '../ProfileImages/ProfileImages';
 import EmojiBadge from '../Badge/EmojiBadge';
-import styles from './index.module.scss';
+import styles from './headerService.module.scss';
 import {
   addEmojiBtn,
   arrowDownBtn,
