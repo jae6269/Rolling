@@ -1,5 +1,5 @@
 import React from 'react';
-import RelationBadge from '../badge/RelationBadge ';
+import RelationBadge from '../Badge/RelationBadge ';
 import ProfileImage from '../ProfileImage';
 import styles from './profile.module.scss';
 

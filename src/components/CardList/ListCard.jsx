@@ -2,7 +2,7 @@ import React from 'react';
 import { COLOR_MAPPINGS, COLOR_IMAGES_MAPPINGS } from '../../constants/colors';
 import styles from './card.module.scss';
 import ProfileImage from '../common/ProfileImage';
-import EmojiBadge from '../common/badge/EmojiBadge';
+import EmojiBadge from '../common/Badge/EmojiBadge';
 
 // 데이터 예시
 // {

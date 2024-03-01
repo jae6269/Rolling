@@ -8,8 +8,15 @@ function ProfileImages({ recipientResult }) {
       {recipientResult.recentMessages.reverse().map((message, i) => {
         recipientResult.recentMessages.reverse();
         const length = recipientResult.messageCount;
-        const distance =
-          length >= 3 ? 3 - i : length === 3 ? 2 - i : length === 2 ? 1 - i : 0;
+        // eslint에서 중첩삼항 연산자를 피하라고 해서 if문으로 코드 변경
+        let distance = 0;
+        if (length >= 3) {
+          distance = 3 - i;
+        } else if (length === 3) {
+          distance = 2 - i;
+        } else if (length === 2) {
+          distance = 1 - i;
+        }
         return (
           <div
             key={message.id}
@@ -17,9 +24,9 @@ function ProfileImages({ recipientResult }) {
           >
             <ProfileImage
               url={message.profileImageURL}
-              //rem단위 인식 X
-              width={'28px'}
-              height={'28px'}
+              // rem단위 인식 X
+              width={28}
+              height={28}
             />
           </div>
         );
