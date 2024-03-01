@@ -8,6 +8,8 @@ const CardList = ({ recipients }) => {
     return <div>Loading...</div>;
   }
 
+  console.log(recipients);
+
   return (
     <div className={styles.recipientList}>
       {recipients.map(recipient => (
@@ -17,11 +19,7 @@ const CardList = ({ recipients }) => {
           name={recipient.name}
           backgroundColor={recipient.backgroundColor}
           backgroundImageURL={recipient.backgroundImageURL}
-          profileImageURLs={
-            recipient.recentMessages
-              ? recipient.recentMessages.map(message => message.profileImageURL)
-              : []
-          }
+          recentMessages={recipient.recentMessages}
           messageCount={recipient.messageCount}
           topReactions={recipient.topReactions}
         />
