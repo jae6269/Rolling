@@ -13,13 +13,7 @@ const CardList = ({ recipients }) => {
       {recipients.map(recipient => (
         <Card
           key={recipient.id}
-          id={recipient.id}
-          name={recipient.name}
-          backgroundColor={recipient.backgroundColor}
-          backgroundImageURL={recipient.backgroundImageURL}
-          recentMessages={recipient.recentMessages}
-          messageCount={recipient.messageCount}
-          topReactions={recipient.topReactions}
+          recipient={recipient} // props를 객체 하나로 전달
         />
       ))}
     </div>

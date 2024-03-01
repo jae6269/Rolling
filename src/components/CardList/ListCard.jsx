@@ -4,13 +4,46 @@ import styles from './card.module.scss';
 import ProfileImage from '../common/ProfileImage';
 import EmojiBadge from '../common/badge/EmojiBadge';
 
+// 데이터 예시
+// {
+//   "id": 2325,
+//   "name": "흰대리",
+//   "backgroundColor": "beige",
+//   "backgroundImageURL": "https://i.ibb.co/6JWjMfM/bgImg2.jpg",
+//   "messageCount": 1,
+//   "recentMessages": [
+//       {
+//           "profileImageURL": "https://i.ibb.co/R4N3Fn3/20231223213332.jpg",
+//       }
+//   ],
+//   "topReactions": [
+//       {
+//           "id": 2191,
+//           "emoji": "🥳",
+//           "count": 5
+//       },
+//       {
+//           "id": 2188,
+//           "emoji": "🎄",
+//           "count": 3
+//       },
+//       {
+//           "id": 2189,
+//           "emoji": "🤩",
+//           "count": 3
+//       }
+//   ]
+// },
+
 const Card = ({
-  name,
-  backgroundColor,
-  backgroundImageURL,
-  recentMessages,
-  messageCount,
-  topReactions,
+  recipient: {
+    name,
+    backgroundColor,
+    backgroundImageURL,
+    recentMessages,
+    messageCount,
+    topReactions,
+  },
 }) => {
   const style = {};
 
