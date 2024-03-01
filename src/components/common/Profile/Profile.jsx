@@ -1,15 +1,12 @@
 import React from 'react';
 import RelationBadge from '../badge/RelationBadge ';
+import ProfileImage from '../ProfileImage';
 import styles from './profile.module.scss';
 
 function Profile({ profileImageURL, sender, relationship, font }) {
   return (
     <div className={styles.profile}>
-      <img
-        className={styles.profileImg}
-        src={profileImageURL}
-        alt="profileImgae"
-      />
+      <ProfileImage url={profileImageURL} width="56px" height="56px" />
       <div className={styles.information}>
         <div className={styles.sender}>
           <span className={styles.from} style={{ fontFamily: font }}>
