@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './BadgeDesign.module.scss';
 
-// 네이빙 변경위한 주석 추가
 function RelationBadge({ relationship }) {
   const getBadgeDetails = () => {
     switch (relationship) {
