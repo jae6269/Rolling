@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './BadgeDesign.module.scss';
 
+// emoji, count
 function EmojiBadge({ emoji, count }) {
   return (
     <div className={styles.badge}>
