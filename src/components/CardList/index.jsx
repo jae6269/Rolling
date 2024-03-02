@@ -10,12 +10,13 @@ const CardList = ({ recipients }) => {
 
   return (
     <div className={styles.recipientList}>
-      {recipients.map(recipient => (
-        <ListOfCard
-          key={recipient.id}
-          recipient={recipient} // props를 객체 하나로 전달
-        />
-      ))}
+      {recipients &&
+        recipients.map(recipient => (
+          <ListOfCard
+            key={recipient.id}
+            recipient={recipient} // props를 객체 하나로 전달
+          />
+        ))}
     </div>
   );
 };
