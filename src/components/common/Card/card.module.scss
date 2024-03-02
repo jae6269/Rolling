@@ -21,13 +21,15 @@
 
   .text {
     width: 21rem;
-    height: 6.625rem;
     flex-shrink: 0;
     overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     text-align: start;
     color: var(--grayscale600, #4a4a4a);
-    text-overflow: ellipsis;
-    white-space: nowrap;
+
     /* Font/18 Regular */
     font-size: 1.125rem;
     font-style: normal;
@@ -36,6 +38,9 @@
     letter-spacing: -0.0112rem;
   }
   .date {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 1.5rem;
     color: var(--grayscale400, #999);
     /* Font/12 Regular */
     font-size: 0.75rem;
