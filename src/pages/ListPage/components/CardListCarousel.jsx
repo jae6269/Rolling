@@ -29,19 +29,19 @@ const CardCarousel = ({ cards }) => {
     ],
   };
 
-  return (
-    <div className={styles.carousel}>
-      <Slider {...settings}>
-        {cards.map(card => (
-          <div key={card.id} style={{ width: 275, margin: '0 10px' }}>
-            {' '}
-            {/* 20px 간격을 위해 좌우 마진을 10px씩 줍니다. */}
-            <ListOfCard recipient={card} />
-          </div>
-        ))}
-      </Slider>
-    </div>
-  );
+  // return (
+  //   <div className={styles.carousel}>
+  //     <Slider {...settings}>
+  //       {cards.map(card => (
+  //         <div key={card.id} style={{ width: 275, margin: '0 10px' }}>
+  //           {' '}
+  //           {/* 20px 간격을 위해 좌우 마진을 10px씩 줍니다. */}
+  //           <ListOfCard recipient={card} />
+  //         </div>
+  //       ))}
+  //     </Slider>
+  //   </div>
+  // );
 };
 
 export default CardCarousel;
