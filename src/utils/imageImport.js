@@ -1,5 +1,5 @@
 import optionBtn from '../assets/option-btn.svg';
-
+import plusLogo from '../assets/plusLogo.svg';
 import beigeShadow from '../assets/beige-shadow.svg';
 import blueShadow from '../assets/blue-shadow.svg';
 import greenShadow from '../assets/green-shadow.svg';
@@ -13,6 +13,7 @@ import verticalLine from '../assets/vertical-line.svg';
 import logoImg from '../assets/logo-img.svg';
 
 export {
+  plusLogo,
   optionBtn,
   beigeShadow,
   blueShadow,
