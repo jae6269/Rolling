@@ -5,6 +5,7 @@ import PostButton from './components/PostButton';
 import Card from '../../components/common/Card/Card';
 import styles from './postPage.module.scss';
 import useFetchData from '../../hooks/useFetchData';
+import HeaderService from '../../components/common/HeaderService/HeaderService';
 
 /**
  * ListPage에서 특정인물(id) 롤링페이퍼 클릭하면,
@@ -61,29 +62,30 @@ import useFetchData from '../../hooks/useFetchData';
  */
 
 function PostPage() {
+  const [emojiClicked, setEmojiClicked] = useState(false);
   const { id } = useParams();
   const url = `https://rolling-api.vercel.app/2-6/recipients/${id}/`;
-  const {
-    name,
-    backgroundColor,
-    backgroundImageURL,
-    messageCount,
-    recentMessages,
-    reactionCount,
-    topReactions,
-  } = useFetchData(url);
+  const reactionUrl = `https://rolling-api.vercel.app/2-6/recipients/${id}/reactions/`;
+  const recipientData = useFetchData(url);
+  const reactionData = useFetchData(reactionUrl);
 
   return (
     <>
       <Header buttonOn={false} />
+      <HeaderService
+        recipientResult={recipientData}
+        reactionsResult={reactionData}
+        reactionsURL={reactionUrl}
+        emojiClicked={emojiClicked}
+        setEmojiClicked={setEmojiClicked}
+      />
       <div className={styles.cardsBackground}>
         <div className={styles.cardsContainer}>
           <PostButton />
-          {recentMessages ? (
-            recentMessages.map(card => <Card key={card.id} props={card} />)
-          ) : (
-            <p>Loading...</p>
-          )}
+          {recipientData.recentMessages &&
+            recipientData.recentMessages.map(card => (
+              <Card key={card.id} props={card} />
+            ))}
         </div>
       </div>
     </>

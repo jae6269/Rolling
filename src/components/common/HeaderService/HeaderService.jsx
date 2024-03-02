@@ -147,13 +147,14 @@ function HeaderService({
           />
           <div className={styles.emojiShare}>
             <div className={styles.emoji}>
-              {recipientResult.topReactions.map(reaction => (
-                <EmojiBadge
-                  key={reaction.id} // 반복되는 컴포넌트의 key 값 설정
-                  emoji={reaction.emoji}
-                  count={reaction.count}
-                />
-              ))}
+              {recipientResult.topReactions &&
+                recipientResult.topReactions.map(reaction => (
+                  <EmojiBadge
+                    key={reaction.id} // 반복되는 컴포넌트의 key 값 설정
+                    emoji={reaction.emoji}
+                    count={reaction.count}
+                  />
+                ))}
 
               <div className={styles.emojiContainer} ref={emojiRef}>
                 <button
