@@ -13,7 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/post" element={<CardCreatePage />} />
-        <Route path="/post/:id" element={<PostPage id={2313} />} />
+        <Route path="/post/:id" element={<PostPage />} />
         <Route path="/post/:id/edit" element={<PostEditPage />} />
         <Route path="/post/:id/message" element={<MessageCreatePage />} />
         <Route path="/list" element={<ListPage />} />

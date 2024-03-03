@@ -3,6 +3,7 @@ import styles from './card.module.scss';
 import formatCardCreatedDate from '../../../utils/formatDataFunctions';
 import Profile from '../Profile/Profile';
 import Modal from '../../Modal/Modal';
+import DeleteButton from './DeleteButton';
 /*
 카드 컴포넌트
 props는 PostPage에서 
@@ -27,9 +28,13 @@ function Card({ props }) {
     props;
   const date = formatCardCreatedDate(createdAt);
 
-  const handleModalOpen = e => {
+  const handleModalSwitch = e => {
     e.preventDefault();
     setIsModalOpen(!isModalOpen);
+  };
+
+  const handleDeleteButtonClick = e => {
+    e.stopPropagation();
   };
 
   return (
@@ -37,7 +42,7 @@ function Card({ props }) {
       <button
         type="button"
         className={styles.container}
-        onClick={handleModalOpen}
+        onClick={handleModalSwitch}
       >
         <Profile
           profileImageURL={profileImageURL}
@@ -45,7 +50,9 @@ function Card({ props }) {
           relationship={relationship}
           font={font}
         />
-
+        <div className={styles.cardDeleteButton}>
+          <DeleteButton onClick={handleDeleteButtonClick} />
+        </div>
         <hr className={styles.underline} />
         <p className={styles.text} style={{ fontFamily: font }}>
           {content}
@@ -54,7 +61,7 @@ function Card({ props }) {
           {date}
         </p>
       </button>
-      {isModalOpen && <Modal props={props} onClick={handleModalOpen} />}
+      {isModalOpen && <Modal props={props} onClick={handleModalSwitch} />}
     </>
   );
 }

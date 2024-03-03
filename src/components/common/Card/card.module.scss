@@ -13,6 +13,12 @@
   border: none;
   cursor: pointer;
 
+  .cardDeleteButton {
+    position: absolute;
+    top: 1.75rem;
+    right: 1.5rem;
+  }
+
   .underline {
     width: 21rem;
     height: 0.0625rem;

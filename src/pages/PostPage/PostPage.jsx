@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Header from '../../components/common/Header';
-import PostButton from './components/PostButton';
+import PostCard from './components/PostCard';
 import Card from '../../components/common/Card/Card';
 import styles from './postPage.module.scss';
 import useFetchData from '../../hooks/useFetchData';
@@ -62,12 +62,18 @@ import HeaderService from '../../components/common/HeaderService/HeaderService';
  */
 
 function PostPage() {
+  const [isEditMode, setIsEditMode] = useState(false);
   const [emojiClicked, setEmojiClicked] = useState(false);
   const { id } = useParams();
   const url = `https://rolling-api.vercel.app/2-6/recipients/${id}/`;
   const reactionUrl = `https://rolling-api.vercel.app/2-6/recipients/${id}/reactions/`;
   const recipientData = useFetchData(url);
   const reactionData = useFetchData(reactionUrl);
+
+  const handleEditModeSwitch = e => {
+    e.preventDefault();
+    setIsEditMode(!isEditMode);
+  };
 
   return (
     <div className={styles.postPageContainer}>
@@ -88,7 +94,7 @@ function PostPage() {
       >
         <div className={styles.cardsContainer}>
           <Link to={`/post/${id}/message`}>
-            <PostButton />
+            <PostCard />
           </Link>
           {recipientData.recentMessages &&
             recipientData.recentMessages.map(card => (
