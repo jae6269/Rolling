@@ -70,7 +70,7 @@ function PostPage() {
   const reactionData = useFetchData(reactionUrl);
 
   return (
-    <>
+    <div className={styles.postPageContainer}>
       <Header buttonOn={false} />
       <HeaderService
         recipientResult={recipientData}
@@ -79,7 +79,13 @@ function PostPage() {
         emojiClicked={emojiClicked}
         setEmojiClicked={setEmojiClicked}
       />
-      <div className={styles.cardsBackground}>
+      <div
+        className={styles.cardsBackground}
+        style={{
+          backgroundColor: recipientData.backgroundColor,
+          backgroundImage: `url(${recipientData.backgroundImageURL})`,
+        }}
+      >
         <div className={styles.cardsContainer}>
           <PostButton />
           {recipientData.recentMessages &&
@@ -88,7 +94,7 @@ function PostPage() {
             ))}
         </div>
       </div>
-    </>
+    </div>
   );
 }
 export default PostPage;

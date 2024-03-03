@@ -1,13 +1,29 @@
-.cardsBackground {
+@mixin background($color, $image: none) {
+  background-color: $color;
+  background-image: url($image);
+}
+
+.postPageContainer {
+  width: 100vw;
+  height: 100vh;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 7.0625rem;
-  .cardsContainer {
-    width: min(75rem, 100%);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-row-gap: 1.5rem;
-    grid-column-gap: 1.75rem;
+  flex-direction: column;
+
+  .cardsBackground {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 7.0625rem;
+    background-size: cover;
+
+    .cardsContainer {
+      width: min(75rem, 100%);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-row-gap: 1.5rem;
+      grid-column-gap: 1.75rem;
+    }
   }
 }
