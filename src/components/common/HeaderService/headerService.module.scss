@@ -96,6 +96,7 @@
       }
       .emojiPicker {
         position: relative;
+        z-index: 3;
         .addEmojiMobile {
           width: 2.25rem;
           height: 2rem;

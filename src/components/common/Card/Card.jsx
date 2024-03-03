@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './card.module.scss';
 import formatCardCreatedDate from '../../../utils/formatDataFunctions';
 import Profile from '../Profile/Profile';
+import Modal from '../../Modal/Modal';
 /*
 카드 컴포넌트
 props는 PostPage에서 
@@ -21,36 +22,40 @@ map으로 하나씩 내려줍니다
 }
 */
 function Card({ props }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { sender, profileImageURL, relationship, content, font, createdAt } =
     props;
   const date = formatCardCreatedDate(createdAt);
 
   const handleModalOpen = e => {
     e.preventDefault();
-    console.log('클릭하면 모달 창 띄우기');
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
-    <button
-      type="button"
-      className={styles.container}
-      onClick={handleModalOpen}
-    >
-      <Profile
-        profileImageURL={profileImageURL}
-        sender={sender}
-        relationship={relationship}
-        font={font}
-      />
+    <>
+      <button
+        type="button"
+        className={styles.container}
+        onClick={handleModalOpen}
+      >
+        <Profile
+          profileImageURL={profileImageURL}
+          sender={sender}
+          relationship={relationship}
+          font={font}
+        />
 
-      <hr className={styles.underline} />
-      <p className={styles.text} style={{ fontFamily: font }}>
-        {content}
-      </p>
-      <p className={styles.date} style={{ fontFamily: font }}>
-        {date}
-      </p>
-    </button>
+        <hr className={styles.underline} />
+        <p className={styles.text} style={{ fontFamily: font }}>
+          {content}
+        </p>
+        <p className={styles.date} style={{ fontFamily: font }}>
+          {date}
+        </p>
+      </button>
+      {isModalOpen && <Modal props={props} onClick={handleModalOpen} />}
+    </>
   );
 }
 

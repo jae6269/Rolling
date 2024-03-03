@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import PostButton from './components/PostButton';
 import Card from '../../components/common/Card/Card';
@@ -87,7 +87,9 @@ function PostPage() {
         }}
       >
         <div className={styles.cardsContainer}>
-          <PostButton />
+          <Link to={`/post/${id}/message`}>
+            <PostButton />
+          </Link>
           {recipientData.recentMessages &&
             recipientData.recentMessages.map(card => (
               <Card key={card.id} props={card} />
