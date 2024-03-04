@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import ListOfCard from './ListCard';
+import ListOfCard from './ListOfCard';
 import styles from './carousel.module.scss';
 
 const Carousel = ({ cards }) => {
@@ -13,6 +13,7 @@ const Carousel = ({ cards }) => {
   const cardWidth = 275;
   const gap = 20;
 
+  // 스크롤 이벤트
   const handleScroll = () => {
     if (carouselElement) {
       const { scrollLeft, scrollWidth, clientWidth } = carouselElement;

@@ -12,6 +12,7 @@
   margin: 0;
   transition: transform 0.3s ease;
 
+  // 호버이벤트
   &:hover {
     filter: brightness(105%);
     transform: translateY(-0.063rem);

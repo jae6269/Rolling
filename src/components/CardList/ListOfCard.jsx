@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { COLOR_MAPPINGS, COLOR_IMAGES_MAPPINGS } from '../../constants/colors';
-import styles from './card.module.scss';
+import styles from './ListOfCard.module.scss';
 import ProfileImage from '../common/ProfileImage';
 import EmojiBadge from '../common/Badge/EmojiBadge';
 
@@ -77,6 +77,7 @@ const ListOfCard = ({
   }
 
   return (
+    // 링크 추가
     <Link to={`/post/${id}`} className={`${styles.link}`}>
       <div
         className={`${styles.card} ${styles[backgroundClassName]}`}
