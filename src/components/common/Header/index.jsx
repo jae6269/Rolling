@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import logoImg from '../../../utils/imageImport';
+import { logoImg } from '../../../utils/imageImport';
 import styles from './index.module.scss';
 
 // <Header buttonOn={false} /> 이런식으로 사용

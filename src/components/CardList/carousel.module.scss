@@ -1,0 +1,63 @@
+.carouselContainer {
+  position: relative;
+  overflow: hidden;
+  padding: 0;
+  width: 100%;
+}
+
+.carouselWrapper {
+  position: relative;
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  max-width: 1160px;
+  z-index: 1;
+  margin: 0 20px;
+}
+
+.carouselWrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.carouselContent {
+  position: relative;
+  display: flex;
+  transition: transform 0.5s ease;
+  z-index: 1000;
+  // 카드의 간격을 유지하면서 스크롤 가능하도록 설정합니다.
+}
+
+.prevButton,
+.nextButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  width: 40px;
+  height: 40px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 50%;
+}
+
+.prevButton {
+  left: 0; // carouselWrapper의 왼쪽 끝에 붙이기
+}
+
+.nextButton {
+  left: 1160px;
+}
+
+// 미디어 쿼리를 사용하여 다양한 화면 크기에 따라 스타일을 적용할 수 있습니다.
+@media (max-width: 1140px) {
+  .prevButton {
+    left: 0;
+  }
+
+  .nextButton {
+    left: auto;
+    right: 0;
+  }
+}
