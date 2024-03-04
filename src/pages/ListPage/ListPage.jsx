@@ -30,11 +30,11 @@ function ListPage() {
       <main className={styles.mainContainer}>
         <div className={styles.articleContainer}>
           <div>
-            <h2>인기 롤링 페이퍼 🔥</h2>
+            <h2 className={styles.listTitle}>인기 롤링 페이퍼 🔥</h2>
             <Carousel cards={popularRecipients} />
           </div>
           <div>
-            <h2>최근에 만든 롤링 페이퍼 ⭐️️</h2>
+            <h2 className={styles.listTitle}>최근에 만든 롤링 페이퍼 ⭐️️</h2>
             <Carousel cards={newestRecipients} />
           </div>
         </div>
