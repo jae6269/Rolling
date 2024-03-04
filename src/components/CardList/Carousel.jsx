@@ -25,7 +25,7 @@ const Carousel = ({ cards }) => {
 
   // eslint-disable-next-line consistent-return
   useEffect(() => {
-    handleScroll(); // 초기 로드 시 스크롤 위치를 확인하여 버튼 가시성 업데이트
+    handleScroll();
     if (carouselElement) {
       carouselElement.addEventListener('scroll', handleScroll);
       return () => {
@@ -42,18 +42,21 @@ const Carousel = ({ cards }) => {
     }
   };
 
+  // 카드 수 계산
   const calculateVisibleCards = () => {
-    const wrapperWidth = carouselElement.clientWidth; // 캐러셀 래퍼의 현재 너비
-    const cardWidthWithGap = cardWidth + gap; // 카드 너비 + 간격
-    return Math.floor(wrapperWidth / cardWidthWithGap); // 한 번에 보여지는 카드의 수
+    const wrapperWidth = carouselElement.clientWidth;
+    const cardWidthWithGap = cardWidth + gap;
+    return Math.floor(wrapperWidth / cardWidthWithGap);
   };
 
+  // 버튼누르면 보이는 카드 갯수만큼 넘어가도록 수정
   const handlePrevClick = () => {
     const cardsToSlide = calculateVisibleCards();
     const newIndex = Math.max(currentIndex - cardsToSlide, 0);
     slideTo(newIndex);
   };
 
+  // 버튼누르면 보이는 카드 갯수만큼 넘어가도록 수정
   const handleNextClick = () => {
     const cardsToSlide = calculateVisibleCards();
     const newIndex = Math.min(

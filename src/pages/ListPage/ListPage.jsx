@@ -10,7 +10,6 @@ function ListPage() {
   const popularDataURL = `${listUrl}${SORT_LIKE}`;
   const newestDataURL = `${listUrl}`;
 
-  // 데이터를 가져오기 위한 useFetchData 커스텀 훅 사용
   const popularRecipientsData = useFetchData(popularDataURL);
   const newestRecipientsData = useFetchData(newestDataURL);
 
@@ -18,7 +17,7 @@ function ListPage() {
   const getValidRecipients = recipientsData =>
     recipientsData && recipientsData.results ? recipientsData.results : [];
 
-  // 유효한 데이터를 가져오기
+  // 데이터 가져오기
   const popularRecipients = getValidRecipients(popularRecipientsData);
   const newestRecipients = getValidRecipients(newestRecipientsData);
 

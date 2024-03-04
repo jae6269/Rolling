@@ -77,7 +77,6 @@ const ListOfCard = ({
   }
 
   return (
-    // 링크 추가
     <Link to={`/post/${id}`} className={`${styles.link}`}>
       <div
         className={`${styles.card} ${styles[backgroundClassName]}`}
