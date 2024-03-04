@@ -26,7 +26,6 @@
   display: flex;
   transition: transform 0.5s ease;
   z-index: 1000;
-  // 카드의 간격을 유지하면서 스크롤 가능하도록 설정합니다.
 }
 
 .prevButton,
@@ -37,20 +36,53 @@
   z-index: 2;
   width: 40px;
   height: 40px;
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8); // 약간 투명한 흰색 배경
   border: 1px solid #ddd;
   border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition:
+    background-color 0.3s,
+    color 0.3s,
+    transform 0.3s;
+
+  &:hover {
+    background-color: var(--white); // 호버 시 primary 색상으로 변경
+    color: var(--purple600); // 호버 시 텍스트 색상을 흰색으로 변경
+    cursor: pointer; // 호버 시 커서를 포인터로 변경
+  }
+
+  span {
+    font-size: 20px; // 텍스트 크기 설정
+    transition: font-size 0.3s; // 호버 시 텍스트 크기 변화
+  }
+
+  &:hover span {
+    font-size: 24px; // 호버 시 텍스트 크기 확대
+  }
 }
 
 .prevButton {
-  left: 0; // carouselWrapper의 왼쪽 끝에 붙이기
+  left: 0;
+
+  &:hover {
+    span {
+      transform: translateX(-2px);
+    }
+  }
 }
 
 .nextButton {
   left: 1160px;
+
+  &:hover {
+    span {
+      transform: translateX(2px);
+    }
+  }
 }
 
-// 미디어 쿼리를 사용하여 다양한 화면 크기에 따라 스타일을 적용할 수 있습니다.
 @media (max-width: 1140px) {
   .prevButton {
     left: 0;

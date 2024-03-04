@@ -70,7 +70,7 @@ const Carousel = ({ cards }) => {
           className={styles.prevButton}
           onClick={handlePrevClick}
         >
-          {'<'}
+          <span>{'<'}</span>
         </button>
       )}
       <div
@@ -96,7 +96,7 @@ const Carousel = ({ cards }) => {
           className={styles.nextButton}
           onClick={handleNextClick}
         >
-          {'>'}
+          <span>{'>'}</span>
         </button>
       )}
     </div>
