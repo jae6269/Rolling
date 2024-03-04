@@ -62,7 +62,10 @@ import HeaderService from '../../components/common/HeaderService/HeaderService';
  */
 
 function PostPage() {
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [isEditMode, setIsEditMode] = useState({
+    modeSwitch: false,
+    buttonText: '삭제하기',
+  });
   const [emojiClicked, setEmojiClicked] = useState(false);
   const { id } = useParams();
   const url = `https://rolling-api.vercel.app/2-6/recipients/${id}/`;
@@ -72,7 +75,19 @@ function PostPage() {
 
   const handleEditModeSwitch = e => {
     e.preventDefault();
-    setIsEditMode(!isEditMode);
+    if (isEditMode.modeSwitch === false) {
+      const editMode = {
+        modeSwitch: true,
+        buttonText: '삭제완료',
+      };
+      setIsEditMode(editMode);
+    } else {
+      const editMode = {
+        modeSwitch: false,
+        buttonText: '삭제하기',
+      };
+      setIsEditMode(editMode);
+    }
   };
 
   return (
@@ -85,6 +100,7 @@ function PostPage() {
         emojiClicked={emojiClicked}
         setEmojiClicked={setEmojiClicked}
       />
+
       <div
         className={styles.cardsBackground}
         style={{
@@ -92,13 +108,24 @@ function PostPage() {
           backgroundImage: `url(${recipientData.backgroundImageURL})`,
         }}
       >
+        <button
+          className={styles.modeSwitchButton}
+          type="button"
+          onClick={handleEditModeSwitch}
+        >
+          {isEditMode.buttonText}
+        </button>
         <div className={styles.cardsContainer}>
           <Link to={`/post/${id}/message`}>
             <PostCard />
           </Link>
           {recipientData.recentMessages &&
             recipientData.recentMessages.map(card => (
-              <Card key={card.id} props={card} />
+              <Card
+                key={card.id}
+                props={card}
+                isEditMode={isEditMode.modeSwitch}
+              />
             ))}
         </div>
       </div>

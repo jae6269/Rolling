@@ -22,7 +22,7 @@ map으로 하나씩 내려줍니다
   "createdAt": "2023-11-01T08:05:25.399056Z"
 }
 */
-function Card({ props }) {
+function Card({ props, isEditMode }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { sender, profileImageURL, relationship, content, font, createdAt } =
     props;
@@ -50,9 +50,11 @@ function Card({ props }) {
           relationship={relationship}
           font={font}
         />
-        <div className={styles.cardDeleteButton}>
-          <DeleteButton onClick={handleDeleteButtonClick} />
-        </div>
+        {isEditMode && (
+          <div className={styles.cardDeleteButton}>
+            <DeleteButton onClick={handleDeleteButtonClick} />
+          </div>
+        )}
         <hr className={styles.underline} />
         <p className={styles.text} style={{ fontFamily: font }}>
           {content}
