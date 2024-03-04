@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import useFetchData from '../../hooks/useFetchData';
 import styles from './index.module.scss';
-import optionBtn from '../../utils/imageImport';
+import { optionBtn } from '../../utils/imageImport';
 
-const Option = () => {
-  const [selectedOption, setSelectedOption] = useState('color');
-  const [selectedButton, setSelectedButton] = useState(0);
+const Option = ({
+  selectedOption,
+  setSelectedOption,
+  selectedButton,
+  setSelectedButton,
+}) => {
   const colorValues = ['beige', 'purple', 'blue', 'green'];
 
   // url 공통 상수 파일 만들면 수정
