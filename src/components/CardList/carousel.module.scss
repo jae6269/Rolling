@@ -12,9 +12,9 @@
   scroll-behavior: smooth;
   -ms-overflow-style: none;
   scrollbar-width: none;
-  max-width: 1160px;
+  max-width: 72.5rem;
   z-index: 1;
-  margin: 0 20px;
+  margin: 0 1.25rem;
 }
 
 .carouselWrapper::-webkit-scrollbar {
@@ -34,10 +34,10 @@
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  width: 40px;
-  height: 40px;
-  background-color: rgba(255, 255, 255, 0.8); // 약간 투명한 흰색 배경
-  border: 1px solid #ddd;
+  width: 2.5rem;
+  height: 2.5rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  border: 0.0625rem solid #ddd;
   border-radius: 50%;
   display: flex;
   justify-content: center;
@@ -48,18 +48,18 @@
     transform 0.3s;
 
   &:hover {
-    background-color: var(--white); // 호버 시 primary 색상으로 변경
-    color: var(--purple600); // 호버 시 텍스트 색상을 흰색으로 변경
-    cursor: pointer; // 호버 시 커서를 포인터로 변경
+    background-color: var(--white);
+    color: var(--purple600);
+    cursor: pointer;
   }
 
   span {
-    font-size: 20px; // 텍스트 크기 설정
-    transition: font-size 0.3s; // 호버 시 텍스트 크기 변화
+    font-size: 1.25rem;
+    transition: font-size 0.3s;
   }
 
   &:hover span {
-    font-size: 24px; // 호버 시 텍스트 크기 확대
+    font-size: 1.5rem;
   }
 }
 
@@ -68,22 +68,22 @@
 
   &:hover {
     span {
-      transform: translateX(-2px);
+      transform: translateX(-0.125rem);
     }
   }
 }
 
 .nextButton {
-  left: 1160px;
+  left: 72.5rem;
 
   &:hover {
     span {
-      transform: translateX(2px);
+      transform: translateX(0.125rem);
     }
   }
 }
 
-@media (max-width: 1140px) {
+@media (max-width: 71.25rem) {
   .prevButton {
     left: 0;
   }
