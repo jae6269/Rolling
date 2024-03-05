@@ -1,6 +1,7 @@
 .content {
-  width: 45rem;
+  width: min(100%, 47.5rem);
   margin: 3.5625rem auto;
+  padding: 0 1.25rem;
 }
 form {
   position: relative;
@@ -9,7 +10,7 @@ form {
     font-weight: 700;
   }
   input {
-    width: 45rem;
+    width: min(100%, 45rem);
     margin: 0.75rem 0 3.125rem;
     height: 3.125rem;
     border: 0.0625rem solid var(--grayscale300);
@@ -47,7 +48,7 @@ p {
 
 .cardCreateButton {
   height: 3.5rem;
-  width: 45rem;
+  width: min(100%, 45rem);
   text-align: center;
   font-size: 1.125rem;
   border-radius: 0.5rem;
