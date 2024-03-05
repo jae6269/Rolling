@@ -26,6 +26,11 @@
   max-width: 72.5rem;
   z-index: 1;
   margin: 0 1.25rem;
+
+  //해당 사이즈에서만 마진이 사라져서 추가
+  @media (min-width: 71.25rem) and (max-width: 73.75rem) {
+    margin-left: 1.25rem;
+  }
 }
 
 .carouselWrapper::-webkit-scrollbar {
