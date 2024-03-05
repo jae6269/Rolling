@@ -10,9 +10,6 @@ import arrowDownBtn from '../assets/arrow_down.svg';
 import shareBtn from '../assets/share-button.svg';
 import verticalLine from '../assets/vertical-line.svg';
 
-import nextArrow from '../assets/next-arrow.svg';
-import prevArrow from '../assets/prev-arrow.svg';
-
 import logoImg from '../assets/logo-img.svg';
 
 export {
@@ -26,6 +23,4 @@ export {
   shareBtn,
   verticalLine,
   logoImg,
-  nextArrow,
-  prevArrow,
 };
