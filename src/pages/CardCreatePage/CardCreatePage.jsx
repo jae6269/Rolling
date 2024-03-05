@@ -35,15 +35,18 @@ function CardCreatePage() {
   };
 
   // 생성 버튼 클릭 시 recipient data 생성 후 post/id페이지로 이동
-  const handleCreateButtonClick = async () => {
-    const response = await fetch(`${recipientsURL}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newRecipientInfo),
-    });
-    const result = await response.json();
-
-    navigate(`${result.id}`);
+  const handleCreateRecipient = async () => {
+    try {
+      const response = await fetch(`${recipientsURL}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newRecipientInfo),
+      });
+      const result = await response.json();
+      navigate(`${result.id}`);
+    } catch (error) {
+      console.log(`${recipientsURL}에 대한 post error : ${error}`);
+    }
   };
 
   // 인풋에서 blur 할 때 공백제외 인풋이 비어있는지 확인
@@ -85,7 +88,7 @@ function CardCreatePage() {
         <button
           type="button"
           className={`${styles.cardCreateButton} ${!inputValue.trim() ? styles.disabledButton : ''}`}
-          onClick={handleCreateButtonClick}
+          onClick={handleCreateRecipient}
           // 공백 제외 인풋이 비어있으면 버튼 비활성화
           disabled={!inputValue.trim()}
         >
