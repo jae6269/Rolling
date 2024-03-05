@@ -15,14 +15,14 @@ function PostPage() {
     buttonText: '삭제하기',
   });
   const [emojiClicked, setEmojiClicked] = useState(false);
+  const [recipients, setRecipients] = useState([]);
+  const [reactions, setReactions] = useState([]);
   const [page, setPage] = useState(0);
   const [cards, setCards] = useState([]);
   const [ref, inView] = useInView();
-  const url = `https://rolling-api.vercel.app/2-9/recipients/${id}/`;
+  const recipientUrl = `https://rolling-api.vercel.app/2-9/recipients/${id}/`;
   const reactionUrl = `https://rolling-api.vercel.app/2-9/recipients/${id}/reactions/`;
   const messageUrl = `https://rolling-api.vercel.app/2-9/recipients/${id}/messages/`;
-  const recipientData = useFetchData(url);
-  const reactionData = useFetchData(reactionUrl);
 
   const handleEditModeSwitch = e => {
     e.preventDefault();
@@ -41,6 +41,8 @@ function PostPage() {
     }
   };
 
+  // 카드 데이터를 가져올 함수
+  // 처음에는 8개, 그다음 무한스크롤(6개씩추가로 가져오도록 설정)
   const getCards = async function () {
     let query = '';
     if (page !== 0) {
@@ -56,16 +58,43 @@ function PostPage() {
     }
   };
 
+  // inVeiw가 True가 될때에 추가로 카드 가져오는 Effect
   useEffect(() => {
-    getCards();
+    if (inView) {
+      getCards();
+    }
   }, [inView]);
+
+  // 이모지 클릭될때 HeaderService에 바로 반영되도록하는 Effect
+  useEffect(() => {
+    async function reactionsFetchData() {
+      try {
+        const response = await fetch(reactionUrl);
+        const result = await response.json();
+        setReactions(result);
+      } catch (error) {
+        console.log(`${reactionUrl}에 대한 fetch error : ${error}`);
+      }
+    }
+    async function recipientFetchData() {
+      try {
+        const response = await fetch(recipientUrl);
+        const result = await response.json();
+        setRecipients(result);
+      } catch (error) {
+        console.log(`${recipientUrl}에 대한 fetch error : ${error}`);
+      }
+    }
+    reactionsFetchData();
+    recipientFetchData();
+  }, [emojiClicked]);
 
   return (
     <>
       <Header buttonOn={false} />
       <HeaderService
-        recipientResult={recipientData}
-        reactionsResult={reactionData}
+        recipientResult={recipients}
+        reactionsResult={reactions}
         reactionsURL={reactionUrl}
         emojiClicked={emojiClicked}
         setEmojiClicked={setEmojiClicked}
@@ -74,8 +103,8 @@ function PostPage() {
       <div
         className={styles.cardsBackground}
         style={{
-          backgroundColor: recipientData.backgroundColor,
-          backgroundImage: `url(${recipientData.backgroundImageURL})`,
+          backgroundColor: recipients.backgroundColor,
+          backgroundImage: `url(${recipients.backgroundImageURL})`,
         }}
       >
         <div className={styles.cardsContainer}>

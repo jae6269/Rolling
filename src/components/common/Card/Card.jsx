@@ -25,7 +25,7 @@ function Card({ props, isEditMode }) {
 
   const handleDeleteButtonClick = e => {
     e.stopPropagation();
-    const deleteUrl = `https://rolling-api.vercel.app/2-6/messages/${id}/`;
+    const deleteUrl = `https://rolling-api.vercel.app/2-9/messages/${id}/`;
     fetch(deleteUrl, {
       method: 'DELETE',
     });
