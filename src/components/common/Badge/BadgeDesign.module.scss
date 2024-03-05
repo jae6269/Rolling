@@ -8,6 +8,10 @@
   justify-content: center;
   gap: 0.625rem;
   background: rgba(0, 0, 0, 0.54);
+  @media (max-width: 767px) {
+    max-width: 3.4375rem;
+    height: 2rem;
+  }
 }
 
 .badge_emoji {

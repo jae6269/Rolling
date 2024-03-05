@@ -166,13 +166,14 @@ function HeaderService({
                 </button>
                 {moreEmojiOn && (
                   <div className={styles.emojiList}>
-                    {reactionsResult.results.map(reaction => (
-                      <EmojiBadge
-                        key={reaction.id}
-                        count={reaction.count}
-                        emoji={reaction.emoji}
-                      />
-                    ))}
+                    {reactionsResult.results &&
+                      reactionsResult.results.map(reaction => (
+                        <EmojiBadge
+                          key={reaction.id}
+                          count={reaction.count}
+                          emoji={reaction.emoji}
+                        />
+                      ))}
                   </div>
                 )}
               </div>

@@ -11,6 +11,11 @@
   background: var(--white, #fff);
   box-shadow: 0rem 0.125rem 0.75rem 0rem rgba(0, 0, 0, 0.08);
 
+  @media (max-width: 78rem) {
+    width: 22rem;
+    height: 17.75rem;
+  }
+
   img {
     display: flex;
     width: 3.5rem;
