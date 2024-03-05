@@ -82,17 +82,21 @@ const Carousel = ({ cards }) => {
         ref={carouselRef}
         onScroll={handleScroll}
       >
-        {cards.map((card, index) => (
-          <div
-            key={card.id}
-            className={styles.card}
-            style={{
-              marginRight: index !== cards.length - 1 ? `${gap}px` : 0,
-            }}
-          >
-            <ListOfCard recipient={card} />
-          </div>
-        ))}
+        {cards.length === 0 ? (
+          <p>No cards to display.</p>
+        ) : (
+          cards.map((card, index) => (
+            <div
+              key={card.id}
+              className={styles.card}
+              style={{
+                marginRight: index !== cards.length - 1 ? `${gap}px` : 0,
+              }}
+            >
+              <ListOfCard recipient={card} />
+            </div>
+          ))
+        )}
       </div>
       {isRightButtonVisible && (
         <button
