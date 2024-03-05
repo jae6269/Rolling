@@ -1,0 +1,117 @@
+.mainPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background-color: var(--white);
+
+  .firstArticle {
+    display: flex;
+    padding: 60px 0px 60px 60px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    gap: 152px;
+    border-radius: 16px;
+    background: var(--surface);
+    width: 1200px;
+    height: 324px;
+  }
+
+  .secondArticle {
+    display: flex;
+    padding: 60px 192px 60px 0px;
+    align-items: flex-start;
+    border-radius: 16px;
+    background: var(--surface);
+    width: 1200px;
+    height: 324px;
+  }
+
+  .textArea {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .point {
+      display: flex;
+      padding: 6px 12px;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 50px;
+      background: var(--purple600);
+      color: var(--white, #fff);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 20px;
+      letter-spacing: -0.07px;
+      word-break: keep-all;
+    }
+
+    .title {
+      margin-top: 16px;
+      color: var(--grayscale900);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 36px;
+      letter-spacing: -0.24px;
+    }
+
+    .description {
+      margin-top: 8px;
+      color: var(--grayscale500);
+
+      font-size: 18px;
+
+      font-weight: 400;
+      line-height: 28px;
+      letter-spacing: -0.18px;
+    }
+  }
+}
+
+.firstImgArea {
+  display: flex;
+  width: 720px;
+  height: 204px;
+  padding: 21px 40px 21.024px 40px;
+  justify-content: center;
+  align-items: center;
+
+  .mainImg {
+    width: 640px;
+    height: 162px;
+  }
+}
+
+.secondImgArea {
+  display: flex;
+  width: 720px;
+  height: 204px;
+  padding: 0px 125px;
+  justify-content: center;
+  align-items: center;
+
+  .mainImg {
+    width: auto;
+    height: 204px;
+  }
+}
+
+.toListBtn {
+  display: flex;
+  width: 280px;
+  padding: 14px 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: var(--purple600);
+  color: var(--white);
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 28px;
+  letter-spacing: -0.18px;
+}

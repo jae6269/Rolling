@@ -22,7 +22,7 @@ function MainPage() {
             </h2>
             <p className={styles.description}>로그인 없이 자유롭게 만들어요.</p>
           </div>
-          <div className={styles.imgArea}>
+          <div className={styles.firstImgArea}>
             <img
               className={styles.mainImg}
               src={mainFirstArticleImg}
@@ -31,7 +31,7 @@ function MainPage() {
           </div>
         </article>
         <article className={styles.secondArticle}>
-          <div className={styles.imgArea}>
+          <div className={styles.secondImgArea}>
             <img
               className={styles.mainImg}
               src={mainSecondArticleImg}
