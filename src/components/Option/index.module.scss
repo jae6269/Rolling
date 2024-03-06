@@ -33,8 +33,9 @@
   display: grid;
   grid-template-columns: repeat(4, 10.5rem);
   gap: 1rem;
-  height: 45rem;
+  height: 10.5rem;
   width: 10.5rem;
+  margin: 2.8125rem 0 4.3125rem;
 
   //모바일 반응형
   @media screen and (max-width: 768px) {
