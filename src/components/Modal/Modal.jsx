@@ -20,7 +20,7 @@ import formatCardCreatedDate from '../../utils/formatDataFunctions';
 }
 */
 
-function Modal({ props }) {
+function Modal({ props, onClick }) {
   const { sender, profileImageURL, relationship, content, font, createdAt } =
     props;
   const date = formatCardCreatedDate(createdAt);
@@ -41,7 +41,7 @@ function Modal({ props }) {
         <div className={styles.text} style={{ fontFamily: font }}>
           {content}
         </div>
-        <button type="button" className={styles.button}>
+        <button type="button" className={styles.button} onClick={onClick}>
           확인
         </button>
       </div>
