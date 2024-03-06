@@ -111,6 +111,10 @@
 }
 
 @media (max-width: 47.9375rem) {
+  .carouselWrapper {
+    margin: 0;
+  }
+
   .carouselContainer {
     margin-left: 0.5rem;
   }
