@@ -1,0 +1,40 @@
+.toast {
+  display: flex;
+  width: min(550px, 100%);
+  height: 4rem;
+  padding: 1.1875rem 1.875rem;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 15.8125rem;
+  flex-shrink: 0;
+  border-radius: 0.5rem;
+  background: rgba(0, 0, 0, 0.8);
+  position: fixed;
+  bottom: 5%; /* 시작 시 화면 아래에 숨김 */
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 10;
+
+  .info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    .text {
+      color: var(--white, #fff);
+
+      /* Font/16 Regular */
+      font-size: 1rem;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 1.625rem; /* 162.5% */
+      letter-spacing: -0.01rem;
+    }
+  }
+
+  .closeButton {
+    background-color: transparent;
+    border: none;
+  }
+}
