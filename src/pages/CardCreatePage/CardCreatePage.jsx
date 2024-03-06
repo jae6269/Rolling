@@ -34,7 +34,7 @@ function CardCreatePage() {
   // 생성 버튼 클릭 시 recipient data 생성 후 post/id페이지로 이동
   const handleCreateRecipient = async () => {
     try {
-      const response = await fetch(`${POST_BASE_URL}`, {
+      const response = await fetch(`${POST_BASE_URL}/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newRecipientInfo),
