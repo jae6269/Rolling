@@ -1,4 +1,6 @@
 .cardsBackground {
+  width: 100%;
+  min-height: calc(100vh - 133px);
   display: flex;
   justify-content: center;
   align-items: flex-start;
