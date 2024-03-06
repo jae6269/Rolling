@@ -174,7 +174,7 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      width: 17rem;
+      // width: 17rem;
 
       .point {
         padding: 0.25rem 0.75rem;
@@ -191,11 +191,11 @@
 
     .firstArticle {
       display: flex;
-      width: 20rem;
+      width: 90%;
       height: 23.75rem;
       padding: 1.5rem 0 3.125rem 0;
       flex-direction: column;
-      align-items: center;
+      // align-items: center;
       gap: 1.875rem;
       justify-content: center;
 
@@ -213,22 +213,23 @@
 
     .secondArticle {
       padding: 1.5rem 0 3.1875rem;
-      width: 20rem;
+      width: 90%;
       height: 23.75rem;
       flex-direction: column;
       margin: 0;
       gap: 1.5rem;
-      justify-content: flex-start;
+      // justify-content: flex-start;
       flex-direction: column;
+      justify-content: center;
 
       .secondImgArea {
         order: 2;
         padding: 0 1.8rem 0 1.8rem;
-        width: 20rem;
+        width: 100%;
 
         .mainImg {
           width: auto;
-          height: 7rem;
+          height: 10rem;
           flex-shrink: 0;
         }
       }
