@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import MainPage from './pages/MainPage/MainPage';
 import ListPage from './pages/ListPage/ListPage';
-import CardCreatePage from './pages/CardCeatePage/CardCreatePage';
+import CardCreatePage from './pages/CardCreatePage/CardCreatePage';
 import PostPage from './pages/PostPage/PostPage';
 import PostEditPage from './pages/PostEditPage/PostEditPage';
 import MessageCreatePage from './pages/MessageCreatePage/MessageCreatePage';

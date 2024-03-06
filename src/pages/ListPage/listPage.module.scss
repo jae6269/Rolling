@@ -1,0 +1,34 @@
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .listTitle {
+    margin: 3.125rem 0 1rem 1.25rem;
+    color: var(--black);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 2.25rem;
+    letter-spacing: -0.015rem;
+
+    @media (max-width: 48rem) {
+      margin: 2.5rem 0 1rem 1.25rem;
+      font-size: 1.25rem;
+    }
+  }
+
+  @media (max-width: 71.25rem) {
+    align-items: flex-start;
+  }
+
+  .articleContainer {
+    margin-bottom: 2.5rem;
+  }
+
+  .buttonContainer {
+    padding: 3rem 0;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+  }
+}

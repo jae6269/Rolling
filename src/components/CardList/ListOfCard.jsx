@@ -1,6 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { COLOR_MAPPINGS, COLOR_IMAGES_MAPPINGS } from '../../constants/colors';
-import styles from './card.module.scss';
+import styles from './listOfCard.module.scss';
 import ProfileImage from '../common/ProfileImage';
 import EmojiBadge from '../common/Badge/EmojiBadge';
 
@@ -37,6 +38,7 @@ import EmojiBadge from '../common/Badge/EmojiBadge';
 
 const ListOfCard = ({
   recipient: {
+    id,
     name,
     backgroundColor,
     backgroundImageURL,
@@ -75,54 +77,56 @@ const ListOfCard = ({
   }
 
   return (
-    <div
-      className={`${styles.card} ${styles[backgroundClassName]}`}
-      style={style}
-    >
-      <div className={styles.cardBody}>
-        <div className={styles.cardContainer}>
-          <h2 className={styles.cardHeader}>To. {name}</h2>
-          <div className={`${styles.profileImage} ${styles.stack}`}>
-            {recentMessages &&
-              recentMessages
-                .slice(0, 3)
-                .map(message => (
-                  <ProfileImage
-                    key={message.id}
-                    url={message.profileImageURL}
-                    width={28}
-                    height={28}
+    <Link to={`/post/${id}`} className={`${styles.link}`}>
+      <div
+        className={`${styles.card} ${styles[backgroundClassName]}`}
+        style={style}
+      >
+        <div className={styles.cardBody}>
+          <div className={styles.cardContainer}>
+            <h2 className={styles.cardHeader}>To. {name}</h2>
+            <div className={`${styles.profileImage} ${styles.stack}`}>
+              {recentMessages &&
+                recentMessages
+                  .slice(0, 3)
+                  .map(message => (
+                    <ProfileImage
+                      key={message.id}
+                      url={message.profileImageURL}
+                      width={28}
+                      height={28}
+                    />
+                  ))}
+              {overflowCount && (
+                <div className={styles.overflowCount}>+{overflowCount}</div>
+              )}
+            </div>
+            <p className={styles.messageContainer}>
+              <span className={styles.messageCount}>{messageCount}</span>명이
+              작성했어요!
+            </p>
+          </div>
+
+          <div className={styles.cardFooter}>
+            <hr className={styles.separator} />
+            {topReactions && topReactions.length > 0 && (
+              <div className={styles.emojiBadge}>
+                {topReactions.map(reaction => (
+                  <EmojiBadge
+                    key={reaction.id}
+                    emoji={reaction.emoji}
+                    count={reaction.count}
                   />
                 ))}
-            {overflowCount && (
-              <div className={styles.overflowCount}>+{overflowCount}</div>
+              </div>
             )}
           </div>
-          <p className={styles.messageContainer}>
-            <span className={styles.messageCount}>{messageCount}</span>명이
-            작성했어요!
-          </p>
         </div>
-
-        <div className={styles.cardFooter}>
-          <hr className={styles.separator} />
-          {topReactions && topReactions.length > 0 && (
-            <div className={styles.emojiBadge}>
-              {topReactions.map(reaction => (
-                <EmojiBadge
-                  key={reaction.id}
-                  emoji={reaction.emoji}
-                  count={reaction.count}
-                />
-              ))}
-            </div>
-          )}
-        </div>
+        {!backgroundImageURL && shadowImage && (
+          <img className={styles.shadowImage} src={shadowImage} alt="Shadow" />
+        )}
       </div>
-      {!backgroundImageURL && shadowImage && (
-        <img className={styles.shadowImage} src={shadowImage} alt="Shadow" />
-      )}
-    </div>
+    </Link>
   );
 };
 
