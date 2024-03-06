@@ -191,7 +191,9 @@ function HeaderService({
         </div>
       </div>
 
-      {urlCopied ? <Toast /> : null}
+      {urlCopied ? (
+        <Toast urlCopied={urlCopied} setUrlCopied={setUrlCopied} />
+      ) : null}
     </>
   );
 }

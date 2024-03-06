@@ -1,19 +1,16 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useInView } from 'react-intersection-observer';
 import Header from '../../components/common/Header';
 import PostCard from './components/PostCard';
 import Card from '../../components/common/Card/Card';
-import styles from './postPage.module.scss';
-import useFetchData from '../../hooks/useFetchData';
 import HeaderService from '../../components/common/HeaderService/HeaderService';
+import styles from './postPage.module.scss';
+import { POST_MODE, EDIT_MODE } from '../../constants/mode';
 
 function PostPage() {
   const { id } = useParams();
-  const [isEditMode, setIsEditMode] = useState({
-    modeSwitch: false,
-    buttonText: '삭제하기',
-  });
+  const [isEditMode, setIsEditMode] = useState(POST_MODE);
   const [emojiClicked, setEmojiClicked] = useState(false);
   const [recipients, setRecipients] = useState([]);
   const [reactions, setReactions] = useState([]);
@@ -26,18 +23,10 @@ function PostPage() {
 
   const handleEditModeSwitch = e => {
     e.preventDefault();
-    if (isEditMode.modeSwitch === false) {
-      const editMode = {
-        modeSwitch: true,
-        buttonText: '삭제완료',
-      };
-      setIsEditMode(editMode);
+    if (isEditMode.isEditMode === false) {
+      setIsEditMode(EDIT_MODE);
     } else {
-      const editMode = {
-        modeSwitch: false,
-        buttonText: '삭제하기',
-      };
-      setIsEditMode(editMode);
+      setIsEditMode(POST_MODE);
     }
   };
 
@@ -115,15 +104,17 @@ function PostPage() {
           >
             {isEditMode.buttonText}
           </button>
-          <Link to={`/post/${id}/message`}>
-            <PostCard />
-          </Link>
+          {!isEditMode.isEditMode && (
+            <Link to={`/post/${id}/message`}>
+              <PostCard />
+            </Link>
+          )}
           {cards &&
             cards.map(card => (
               <Card
                 key={card.id}
                 props={card}
-                isEditMode={isEditMode.modeSwitch}
+                isEditMode={isEditMode.isEditMode}
               />
             ))}
           <div ref={ref} />
