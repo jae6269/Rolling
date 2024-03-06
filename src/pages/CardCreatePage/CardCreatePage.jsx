@@ -4,6 +4,7 @@ import Option from '../../components/Option';
 import styles from './cardCreatePage.module.scss';
 import useFetchData from '../../hooks/useFetchData';
 import Header from '../../components/common/Header';
+import { POST_BASE_URL, backGroundImgUrl } from '../../constants/fetchUrl';
 
 function CardCreatePage() {
   const [inputValue, setInputValue] = useState('');
@@ -12,14 +13,10 @@ function CardCreatePage() {
   const [invalid, setInvalid] = useState(false);
   const navigate = useNavigate();
   // URL 나중에 수정
-  const recipientsURL = 'https://rolling-api.vercel.app/2-9/recipients/';
 
   const colorValues = ['beige', 'purple', 'blue', 'green'];
 
-  // url 공통 상수 파일 만들면 수정
-  const apiResponse = useFetchData(
-    'https://rolling-api.vercel.app/background-images/',
-  );
+  const apiResponse = useFetchData(backGroundImgUrl);
   const imageUrls = apiResponse ? apiResponse.imageUrls : [];
 
   const handleInputChange = e => {
@@ -37,7 +34,7 @@ function CardCreatePage() {
   // 생성 버튼 클릭 시 recipient data 생성 후 post/id페이지로 이동
   const handleCreateRecipient = async () => {
     try {
-      const response = await fetch(`${recipientsURL}`, {
+      const response = await fetch(`${POST_BASE_URL}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newRecipientInfo),
@@ -45,7 +42,7 @@ function CardCreatePage() {
       const result = await response.json();
       navigate(`${result.id}`);
     } catch (error) {
-      console.log(`${recipientsURL}에 대한 post error : ${error}`);
+      console.log(`${POST_BASE_URL}에 대한 post error : ${error}`);
     }
   };
 
