@@ -5,6 +5,7 @@ import styles from './listOfCard.module.scss';
 import ProfileImage from '../common/ProfileImage';
 import EmojiBadge from '../common/Badge/EmojiBadge';
 
+//
 // 데이터 예시
 // {
 //   "id": 2325,
