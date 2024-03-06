@@ -7,6 +7,7 @@ import Card from '../../components/common/Card/Card';
 import HeaderService from '../../components/common/HeaderService/HeaderService';
 import styles from './postPage.module.scss';
 import { POST_MODE, EDIT_MODE } from '../../constants/mode';
+import { POST_BASE_URL } from '../../constants/fetchUrl';
 
 function PostPage() {
   const { id } = useParams();
@@ -17,9 +18,9 @@ function PostPage() {
   const [page, setPage] = useState(0);
   const [cards, setCards] = useState([]);
   const [ref, inView] = useInView();
-  const recipientUrl = `https://rolling-api.vercel.app/2-9/recipients/${id}/`;
-  const reactionUrl = `https://rolling-api.vercel.app/2-9/recipients/${id}/reactions/`;
-  const messageUrl = `https://rolling-api.vercel.app/2-9/recipients/${id}/messages/`;
+  const recipientUrl = `${POST_BASE_URL}/${id}/`;
+  const reactionUrl = `${POST_BASE_URL}/${id}/reactions/`;
+  const messageUrl = `${POST_BASE_URL}/${id}/messages/`;
 
   const handleEditModeSwitch = e => {
     e.preventDefault();
