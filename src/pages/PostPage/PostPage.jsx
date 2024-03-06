@@ -115,6 +115,8 @@ function PostPage() {
                 key={card.id}
                 props={card}
                 isEditMode={isEditMode.isEditMode}
+                cards={cards}
+                setCards={setCards}
               />
             ))}
           <div ref={ref} />

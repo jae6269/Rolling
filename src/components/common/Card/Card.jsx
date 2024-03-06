@@ -5,7 +5,7 @@ import Profile from '../Profile/Profile';
 import Modal from '../../Modal/Modal';
 import DeleteButton from './DeleteButton';
 
-function Card({ props, isEditMode }) {
+function Card({ props, isEditMode, cards, setCards }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const {
     id,
@@ -29,6 +29,9 @@ function Card({ props, isEditMode }) {
     fetch(deleteUrl, {
       method: 'DELETE',
     });
+
+    const newCards = cards.filter(card => card.id !== id);
+    setCards(newCards);
   };
 
   return (
