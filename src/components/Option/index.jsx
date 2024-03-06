@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import useFetchData from '../../hooks/useFetchData';
-import styles from './index.module.scss';
 import { optionBtn } from '../../utils/imageImport';
+import styles from './index.module.scss';
 
 const Option = ({
   selectedOption,
