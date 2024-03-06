@@ -4,6 +4,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import KakaoShareButton from './KakaoShareButton';
 import ProfileImages from '../ProfileImages/ProfileImages';
 import EmojiBadge from '../Badge/EmojiBadge';
+import Toast from '../../../pages/PostPage/components/Toast';
 import styles from './headerService.module.scss';
 import {
   addEmojiBtn,
@@ -11,47 +12,7 @@ import {
   shareBtn,
   verticalLine,
 } from '../../../utils/imageImport';
-// import useFetchData from "../../../hooks/useFetchData";
 
-// 나중에 외부로 뺄 코드들
-// const [emojiClicked, setEmojiClicked] = useState(false);
-//   const [reactionsResult, setReactionsResult] = useState([]);
-//   const [recipientResult, setRecipientResult] = useState([]);
-//   const URLRecipients = "https://rolling-api.vercel.app/2-9/recipients/2264/";
-//   const URLReactions = "https://rolling-api.vercel.app/2-9/recipients/2264/reactions/";
-
-//   useEffect(() => {
-//     async function reactionsFetchData() {
-//       try {
-//         const response = await fetch(URLReactions);
-//         const result = await response.json();
-//         setReactionsResult(result);
-//       } catch (error) {
-//         console.log(`${URLReactions}에 대한 fetch error : ${error}`);
-//       }
-//     }
-//     async function recipientFetchData() {
-//       try {
-//         const response = await fetch(URLRecipients);
-//         const result = await response.json();
-//         setRecipientResult(result);
-//       } catch (error) {
-//         console.log(`${URLRecipients}에 대한 fetch error : ${error}`);
-//       }
-//     }
-//     reactionsFetchData();
-//     recipientFetchData();
-//   }, [emojiClicked]);
-// console.log(recipientResult),console.log(reactionsResult) 를 하면 빈 배열이 출력된 후 결과가 출력돼서 이렇게 씀
-// return( {recipientResult.length !== 0 && reactionsResult.length !== 0 && (
-//     <HeaderService
-//     recipientResult={recipientResult}
-//     reactionsResult={reactionsResult}
-//     reactionsURL={URLReactions}
-//     emojiClicked={emojiClicked}
-//     setEmojiClicked={setEmojiClicked}
-//   />
-// )})
 function HeaderService({
   recipientResult,
   reactionsResult,
@@ -230,7 +191,9 @@ function HeaderService({
         </div>
       </div>
 
-      {urlCopied ? <span>상민님 토스트</span> : null}
+      {urlCopied ? (
+        <Toast urlCopied={urlCopied} setUrlCopied={setUrlCopied} />
+      ) : null}
     </>
   );
 }
