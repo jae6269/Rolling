@@ -4,7 +4,7 @@ import Option from '../../components/Option';
 import styles from './cardCreatePage.module.scss';
 import useFetchData from '../../hooks/useFetchData';
 import Header from '../../components/common/Header';
-import { POST_BASE_URL, backGroundImgUrl } from '../../constants/fetchUrl';
+import { POST_BASE_URL, BACKGROUND_IMG_URL } from '../../constants/fetchUrl';
 
 function CardCreatePage() {
   const [inputValue, setInputValue] = useState('');
@@ -16,7 +16,7 @@ function CardCreatePage() {
 
   const colorValues = ['beige', 'purple', 'blue', 'green'];
 
-  const apiResponse = useFetchData(backGroundImgUrl);
+  const apiResponse = useFetchData(BACKGROUND_IMG_URL);
   const imageUrls = apiResponse ? apiResponse.imageUrls : [];
 
   const handleInputChange = e => {
