@@ -1,0 +1,99 @@
+.dropDownContainer {
+  position: relative;
+  width: 320px;
+
+  .selectContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    padding: 12px 16px;
+    background-color: var(--white);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 1px solid var(--grayscale300);
+
+    &:focus {
+      border-radius: 8px;
+      border: 2px solid var(--grayscale500);
+    }
+
+    &.active {
+      border-radius: 8px;
+      border: 2px solid var(--grayscale500);
+    }
+
+    &:hover {
+      border-radius: 8px;
+      border: 1px solid var(--grayscale500);
+    }
+
+    &:disabled {
+      border-radius: 8px;
+      border: 1px solid var(--grayscale300);
+      background: var(--grayscale100);
+    }
+
+    .selectedOption {
+      border: none;
+      color: var(--grayscale500);
+      background-color: #fff;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 26px;
+      letter-spacing: -0.16px;
+    }
+  }
+
+  .dropdownList {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    overflow-y: auto;
+    display: inline-flex;
+    padding: 10px 1px;
+    flex-direction: column;
+    margin-top: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--grayscale300);
+    background: var(--white);
+    box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.08);
+
+    .dropdownItem {
+      padding: 12px 16px;
+      display: flex;
+      width: 316px;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      &:hover,
+      &[aria-selected='true'] {
+        background-color: var(--grayscale100);
+      }
+    }
+  }
+}
+
+.icon {
+  display: flex;
+}
+
+.selectContainer.noOptionsError {
+  border: 1px solid var(--error);
+  width: 320px;
+  height: 50px;
+}
+
+.noOptionsError {
+  width: 320px;
+  height: 18px;
+  color: var(--error);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.06px;
+}
