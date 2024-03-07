@@ -98,13 +98,20 @@ function PostPage() {
 
       <div className={styles.cardsBackground} style={background}>
         <div className={styles.cardsContainer}>
-          <button
-            className={styles.modeSwitchButton}
-            type="button"
-            onClick={handleEditModeSwitch}
-          >
-            {isEditMode.buttonText}
-          </button>
+          <div className={styles.buttonContainer}>
+            {isEditMode.isEditMode && (
+              <button className={styles.clearButton} type="button">
+                전체삭제
+              </button>
+            )}
+            <button
+              className={styles.modeSwitchButton}
+              type="button"
+              onClick={handleEditModeSwitch}
+            >
+              {isEditMode.buttonText}
+            </button>
+          </div>
           {!isEditMode.isEditMode && (
             <Link to={`/post/${id}/message`}>
               <PostCard />
