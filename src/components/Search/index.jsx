@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import Modal from './SearchModal';
 import ListOfCard from '../CardList/ListOfCard';
 import styles from './index.module.scss';
 
 const Search = ({ data }) => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [showSearchBox, setShowSearchBox] = useState(false);
+  const [showModal, setShowModal] = useState(false);
 
   const handleSearchInputChange = e => {
     setSearchTerm(e.target.value);
@@ -14,24 +15,33 @@ const Search = ({ data }) => {
     item.name.toLowerCase().includes(searchTerm.toLowerCase()),
   );
 
+  const handleToggleModal = () => {
+    setSearchTerm('');
+    setShowModal(!showModal);
+  };
+
   return (
     <div className={styles.searchContainer}>
-      <button type="button" onClick={() => setShowSearchBox(!showSearchBox)}>
+      <button type="button" onClick={handleToggleModal}>
         🔍
       </button>
-      {showSearchBox && (
+      <Modal isOpen={showModal} onClose={handleToggleModal}>
         <div className={styles.searchBox}>
           <input
             type="text"
-            placeholder="Search..."
+            placeholder="롤링 페이퍼를 검색해 보세요🔍"
             value={searchTerm}
             onChange={handleSearchInputChange}
+            className={styles.inputBox}
           />
-          {filteredData.map(item => (
-            <ListOfCard key={item.id} recipient={item} />
-          ))}
+          <div className={styles.cardList}>
+            {searchTerm &&
+              filteredData.map(item => (
+                <ListOfCard key={item.id} recipient={item} />
+              ))}
+          </div>
         </div>
-      )}
+      </Modal>
     </div>
   );
 };

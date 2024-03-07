@@ -1,0 +1,40 @@
+.modalOverlay {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.4);
+  box-shadow: 0rem 0.25rem 1.5625rem 0rem rgba(0, 0, 0, 0.08);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+
+  .modalContent {
+    position: relative;
+    width: 60rem;
+    height: 29.75rem;
+    padding: 2.5rem;
+    flex-shrink: 0;
+    border-radius: 1rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+
+    .closeButton {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      color: var(--purple600);
+      background-color: var(--white);
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+}
