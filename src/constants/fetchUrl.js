@@ -11,7 +11,14 @@ const listUrl = `${BASE_URL}/${TEAM_URL}/recipients/?limit=16&offset=0&sort=`;
 
 // post페이지 BaseURL
 const POST_BASE_URL = `${BASE_URL}/${TEAM_URL}/recipients`;
+const MESSAGE_DELETE_URL = `${BASE_URL}/${TEAM_URL}/messages`;
 // sort
 const SORT_LIKE = 'like';
 
-export { backGroundImgUrl, listUrl, POST_BASE_URL, SORT_LIKE };
+export {
+  backGroundImgUrl,
+  listUrl,
+  POST_BASE_URL,
+  MESSAGE_DELETE_URL,
+  SORT_LIKE,
+};

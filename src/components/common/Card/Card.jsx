@@ -4,6 +4,7 @@ import formatCardCreatedDate from '../../../utils/formatDataFunctions';
 import Profile from '../Profile/Profile';
 import Modal from '../../Modal/Modal';
 import DeleteButton from './DeleteButton';
+import { MESSAGE_DELETE_URL } from '../../../constants/fetchUrl';
 
 function Card({ props, isEditMode, cards, setCards }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -25,7 +26,7 @@ function Card({ props, isEditMode, cards, setCards }) {
 
   const handleDeleteButtonClick = e => {
     e.stopPropagation();
-    const deleteUrl = `https://rolling-api.vercel.app/2-9/messages/${id}/`;
+    const deleteUrl = `${MESSAGE_DELETE_URL}/${id}/`;
     fetch(deleteUrl, {
       method: 'DELETE',
     });
