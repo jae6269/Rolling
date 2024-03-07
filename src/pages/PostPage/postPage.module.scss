@@ -1,4 +1,6 @@
 .cardsBackground {
+  width: 100%;
+  min-height: calc(100vh - 133px);
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -50,7 +52,7 @@
       letter-spacing: -0.16px;
 
       position: absolute;
-      top: -3.125rem;
+      top: -60px;
       right: 0.625rem;
 
       @media (max-width: 1200px) {

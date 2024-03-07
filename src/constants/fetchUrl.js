@@ -4,14 +4,21 @@ const BASE_URL = 'https://rolling-api.vercel.app';
 const TEAM_URL = '2-7';
 
 // 백그라운드 이미지 URL
-const backGroundImgUrl = `${BASE_URL}/background-images/`;
+const BACKGROUND_IMG_URL = `${BASE_URL}/background-images/`;
 
 // 대상 (Recipient)
-const listUrl = `${BASE_URL}/${TEAM_URL}/recipients/?limit=16&offset=0&sort=`;
+const LIST_URL = `${BASE_URL}/${TEAM_URL}/recipients/?limit=16&offset=0&sort=`;
 
 // post페이지 BaseURL
 const POST_BASE_URL = `${BASE_URL}/${TEAM_URL}/recipients`;
+const MESSAGE_DELETE_URL = `${BASE_URL}/${TEAM_URL}/messages`;
 // sort
 const SORT_LIKE = 'like';
 
-export { backGroundImgUrl, listUrl, POST_BASE_URL, SORT_LIKE };
+export {
+  BACKGROUND_IMG_URL,
+  LIST_URL,
+  POST_BASE_URL,
+  MESSAGE_DELETE_URL,
+  SORT_LIKE,
+};
