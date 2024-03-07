@@ -6,6 +6,7 @@ import greenShadow from '../assets/green-shadow.svg';
 import purpleShadow from '../assets/purple-shadow.svg';
 
 import addEmojiBtn from '../assets/add-emoji.svg';
+import arrowTopBtn from '../assets/arrow_top.svg';
 import arrowDownBtn from '../assets/arrow_down.svg';
 import shareBtn from '../assets/share-button.svg';
 import verticalLine from '../assets/vertical-line.svg';
@@ -24,6 +25,7 @@ export {
   greenShadow,
   purpleShadow,
   addEmojiBtn,
+  arrowTopBtn,
   arrowDownBtn,
   shareBtn,
   verticalLine,
