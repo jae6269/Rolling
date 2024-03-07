@@ -8,6 +8,7 @@ import HeaderService from '../../components/common/HeaderService/HeaderService';
 import styles from './postPage.module.scss';
 import { POST_MODE, EDIT_MODE } from '../../constants/mode';
 import { POST_BASE_URL } from '../../constants/fetchUrl';
+import setPostPageBackground from '../../utils/setPostPageBackground';
 
 function PostPage() {
   const { id } = useParams();
@@ -21,6 +22,11 @@ function PostPage() {
   const recipientUrl = `${POST_BASE_URL}/${id}/`;
   const reactionUrl = `${POST_BASE_URL}/${id}/reactions/`;
   const messageUrl = `${POST_BASE_URL}/${id}/messages/`;
+
+  const background = setPostPageBackground(
+    recipients.backgroundColor,
+    recipients.backgroundImageURL,
+  );
 
   const handleEditModeSwitch = e => {
     e.preventDefault();
@@ -77,7 +83,7 @@ function PostPage() {
     }
     reactionsFetchData();
     recipientFetchData();
-  }, [emojiClicked]);
+  }, [emojiClicked, isEditMode]);
 
   return (
     <>
@@ -90,13 +96,7 @@ function PostPage() {
         setEmojiClicked={setEmojiClicked}
       />
 
-      <div
-        className={styles.cardsBackground}
-        style={{
-          backgroundColor: recipients.backgroundColor,
-          backgroundImage: `url(${recipients.backgroundImageURL})`,
-        }}
-      >
+      <div className={styles.cardsBackground} style={background}>
         <div className={styles.cardsContainer}>
           <button
             className={styles.modeSwitchButton}

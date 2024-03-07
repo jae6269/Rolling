@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import Carousel from '../../components/CardList/Carousel';
 import useFetchData from '../../hooks/useFetchData';
-import { listUrl, SORT_LIKE, POST_BASE_URL } from '../../constants/fetchUrl';
+import { LIST_URL, SORT_LIKE, POST_BASE_URL } from '../../constants/fetchUrl';
 import styles from './listPage.module.scss';
 import Search from '../../components/Search';
 
 function ListPage() {
-  const popularDataURL = `${listUrl}${SORT_LIKE}`;
-  const newestDataURL = `${listUrl}`;
+  const popularDataURL = `${LIST_URL}${SORT_LIKE}`;
+  const newestDataURL = `${LIST_URL}`;
 
   const popularRecipientsData = useFetchData(popularDataURL);
   const newestRecipientsData = useFetchData(newestDataURL);
