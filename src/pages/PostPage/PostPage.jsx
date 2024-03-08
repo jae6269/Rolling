@@ -9,10 +9,12 @@ import styles from './postPage.module.scss';
 import { POST_MODE, EDIT_MODE } from '../../constants/mode';
 import { POST_BASE_URL } from '../../constants/fetchUrl';
 import setPostPageBackground from '../../utils/setPostPageBackground';
+import MessageClearModal from '../../components/Modal/MessageClearModal';
 
 function PostPage() {
   const { id } = useParams();
   const [isEditMode, setIsEditMode] = useState(POST_MODE);
+  const [isClearModalOpen, setIsClearModalOpen] = useState(false);
   const [emojiClicked, setEmojiClicked] = useState(false);
   const [recipients, setRecipients] = useState([]);
   const [reactions, setReactions] = useState([]);
@@ -35,6 +37,10 @@ function PostPage() {
     } else {
       setIsEditMode(POST_MODE);
     }
+  };
+  const handleClearModalSwitch = e => {
+    e.preventDefault();
+    setIsClearModalOpen(!isClearModalOpen);
   };
 
   // 카드 데이터를 가져올 함수
@@ -100,9 +106,16 @@ function PostPage() {
         <div className={styles.cardsContainer}>
           <div className={styles.buttonContainer}>
             {isEditMode.isEditMode && (
-              <button className={styles.clearButton} type="button">
+              <button
+                className={styles.clearButton}
+                type="button"
+                onClick={handleClearModalSwitch}
+              >
                 전체삭제
               </button>
+            )}
+            {isClearModalOpen && (
+              <MessageClearModal handleClose={handleClearModalSwitch} />
             )}
             <button
               className={styles.modeSwitchButton}
