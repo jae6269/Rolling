@@ -83,7 +83,7 @@ function PostPage() {
     }
     reactionsFetchData();
     recipientFetchData();
-  }, [emojiClicked]);
+  }, [emojiClicked, isEditMode]);
 
   return (
     <>
