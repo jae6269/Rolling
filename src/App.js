@@ -18,8 +18,10 @@ function App() {
         setIsLoading(false);
       }, 1000); // 예시로 1초 뒤에 로딩 상태를 false로 변경
     };
-
-    handleLoading(); // 라우트 변경 시 핸들러 실행
+    const id = location.pathname.split('/').slice(-1)[0];
+    if (location.pathname === '/list' || location.pathname === `/post/${id}`) {
+      handleLoading();
+    } // 라우트 변경 시 핸들러 실행
 
     return () => {
       // cleanup
