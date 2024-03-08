@@ -6,6 +6,7 @@ import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import Header from '../../components/common/Header';
 import styles from './messageCreatePage.module.scss';
 import { POST_BASE_URL, PROFILE_IMAGE_URL } from '../../constants/fetchUrl';
+import Dropdown from '../../components/Textfield';
 
 function MessageCreatePage() {
   const [invalid, setInvalid] = useState(false);
@@ -114,14 +115,16 @@ function MessageCreatePage() {
     <>
       <Header buttonOn={false} />
       <div className={styles.content}>
-        <form>
-          <label htmlFor="sender">From.</label>
+        <form className={styles.form}>
+          <label className={styles.label} htmlFor="sender">
+            From.
+          </label>
           <input
             id="sender"
             placeholder="이름을 입력해 주세요."
             value={sender}
             onChange={handleSenderChange}
-            className={invalid ? styles.invalidInput : 'df'}
+            className={`${styles.input} ${invalid ? styles.invalidInput : 'df'}`}
             onBlur={handleInputBlur}
           />
           {invalid && (
@@ -166,8 +169,10 @@ function MessageCreatePage() {
             </div>
           </div>
         </div>
-        <form>
-          <label htmlFor="relation">상대와의 관계</label>
+        <form className={styles.form}>
+          <label className={styles.label} htmlFor="relation">
+            상대와의 관계
+          </label>
           {/* 형주님 textfield */}
           <select id="relation" onChange={handleRelationChange}>
             <option value="지인">지인</option>
@@ -175,6 +180,7 @@ function MessageCreatePage() {
             <option value="친구">친구</option>
             <option value="가족">가족</option>
           </select>
+          <Dropdown options={['지인', '동료', '친구', '가족']} />
         </form>
         <h1>내용을 입력해주세요</h1>
         <Editor
@@ -223,8 +229,10 @@ function MessageCreatePage() {
           }}
           onEditorStateChange={onEditorStateChange}
         />
-        <form>
-          <label htmlFor="font">폰트 선택</label>
+        <form className={styles.form}>
+          <label className={styles.label} htmlFor="font">
+            폰트 선택
+          </label>
           <select id="font" onChange={handleFontChange}>
             <option value="Noto Sans">Noto Sans</option>
             <option value="Pretendard">Pretendard</option>
