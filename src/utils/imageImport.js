@@ -17,6 +17,12 @@ import mainFirstArticleImg from '../assets/main-article-1.svg';
 // svg로하면 이모지가 깨져서 png 파일입니다.
 import mainSecondArticleImg from '../assets/main-article-2.png';
 
+import plus from '../assets/plus.svg';
+import smileBlack from '../assets/smile.svg';
+import smileWhite from '../assets/smile-white.svg';
+import deleted from '../assets/deleted-black.svg';
+import deletedWhite from '../assets/deleted-white.svg';
+
 export {
   plusLogo,
   optionBtn,
@@ -32,4 +38,9 @@ export {
   logoImg,
   mainFirstArticleImg,
   mainSecondArticleImg,
+  plus,
+  smileBlack,
+  smileWhite,
+  deleted,
+  deletedWhite,
 };
