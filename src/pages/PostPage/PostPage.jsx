@@ -115,7 +115,10 @@ function PostPage() {
               </button>
             )}
             {isClearModalOpen && (
-              <MessageClearModal handleClose={handleClearModalSwitch} />
+              <MessageClearModal
+                recipient={recipients}
+                handleClose={handleClearModalSwitch}
+              />
             )}
             <button
               className={styles.modeSwitchButton}
