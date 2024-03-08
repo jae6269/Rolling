@@ -80,7 +80,7 @@ function MessageCreatePage() {
     font,
     profileImageURL: profileImage,
   };
-
+  console.log(newMessageInfo);
   const handleCreateMessage = async () => {
     try {
       const response = await fetch(`${messagesURL}`, {
@@ -98,11 +98,11 @@ function MessageCreatePage() {
   };
 
   const handleRelationChange = e => {
-    setRelation(e.target.value);
+    setRelation(e.target.textContent);
   };
 
   const handleFontChange = e => {
-    setFont(e.target.value);
+    setFont(e.target.textContent);
   };
 
   const onEditorStateChange = editorState => {
@@ -173,14 +173,11 @@ function MessageCreatePage() {
           <label className={styles.label} htmlFor="relation">
             상대와의 관계
           </label>
-          {/* 형주님 textfield */}
-          <select id="relation" onChange={handleRelationChange}>
-            <option value="지인">지인</option>
-            <option value="동료">동료</option>
-            <option value="친구">친구</option>
-            <option value="가족">가족</option>
-          </select>
-          <Dropdown options={['지인', '동료', '친구', '가족']} />
+          <Dropdown
+            id="relation"
+            onChange={handleRelationChange}
+            options={['지인', '동료', '친구', '가족']}
+          />
         </form>
         <h1>내용을 입력해주세요</h1>
         <Editor
@@ -233,13 +230,18 @@ function MessageCreatePage() {
           <label className={styles.label} htmlFor="font">
             폰트 선택
           </label>
-          <select id="font" onChange={handleFontChange}>
-            <option value="Noto Sans">Noto Sans</option>
-            <option value="Pretendard">Pretendard</option>
-            <option value="나눔명조">나눔명조</option>
-            <option value="나눔손글씨 손편지체">나눔손글씨 손편지체</option>
-          </select>
+          <Dropdown
+            id="font"
+            onChange={handleFontChange}
+            options={[
+              'Noto Sans',
+              'Pretendard',
+              '나눔명조',
+              '나눔손글씨 손편지체',
+            ]}
+          />
         </form>
+
         <button
           type="button"
           onClick={handleCreateMessage}
