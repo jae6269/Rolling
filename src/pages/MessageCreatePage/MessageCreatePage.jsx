@@ -65,7 +65,6 @@ function MessageCreatePage() {
     setProfileImage(e.target.src);
     setSelectedImage(e.target.src);
     const profileImages = e.target.parentElement.parentElement.children;
-    console.log(profileImages);
     // eslint-disable-next-line no-restricted-syntax
     for (const image of profileImages) {
       image.children[0].className = `${styles.profileImage}`;
@@ -80,7 +79,7 @@ function MessageCreatePage() {
     font,
     profileImageURL: profileImage,
   };
-  console.log(newMessageInfo);
+
   const handleCreateMessage = async () => {
     try {
       const response = await fetch(`${messagesURL}`, {
