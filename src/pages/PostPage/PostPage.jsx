@@ -93,6 +93,13 @@ function PostPage() {
 
   return (
     <>
+      {isClearModalOpen && (
+        <MessageClearModal
+          url={recipientUrl}
+          name={recipients.name}
+          handleClose={handleClearModalSwitch}
+        />
+      )}
       <Header buttonOn={false} />
       <HeaderService
         recipientResult={recipients}
@@ -105,21 +112,14 @@ function PostPage() {
       <div className={styles.cardsBackground} style={background}>
         <div className={styles.cardsContainer}>
           <div className={styles.buttonContainer}>
-            {isEditMode.isEditMode && (
-              <button
-                className={styles.clearButton}
-                type="button"
-                onClick={handleClearModalSwitch}
-              >
-                전체삭제
-              </button>
-            )}
-            {isClearModalOpen && (
-              <MessageClearModal
-                recipient={recipients}
-                handleClose={handleClearModalSwitch}
-              />
-            )}
+            <button
+              className={styles.clearButton}
+              type="button"
+              onClick={handleClearModalSwitch}
+            >
+              전체삭제
+            </button>
+
             <button
               className={styles.modeSwitchButton}
               type="button"
