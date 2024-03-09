@@ -1,0 +1,25 @@
+.loadingBackground {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background: #ffffffb7;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .loadingText {
+    font-size: 3.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 2.625rem; /* 150% */
+    letter-spacing: -0.0175rem;
+  }
+  .loadingSpinner {
+    width: 300px;
+    height: 300px;
+  }
+}
