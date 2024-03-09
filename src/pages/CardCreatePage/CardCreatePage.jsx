@@ -58,15 +58,17 @@ function CardCreatePage() {
     <>
       <Header buttonOn={false} />
       <div className={styles.content}>
-        <form>
-          <label htmlFor="recipientName">To.</label>
+        <form className={styles.form}>
+          <label className={styles.label} htmlFor="recipientName">
+            To.
+          </label>
           <input
             id="recipientName"
             type="text"
             value={inputValue}
             onChange={handleInputChange}
             placeholder="받는 사람 이름을 입력해 주세요"
-            className={invalid ? styles.invalidInput : ''}
+            className={`${styles.input} ${invalid ? styles.invalidInput : ''}`}
             onBlur={handleInputBlur}
           />
           {invalid && (

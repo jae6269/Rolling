@@ -1,0 +1,29 @@
+.skeletonCard {
+  width: 17.1875rem;
+  height: 16.25rem;
+  position: relative;
+  border-radius: 1rem;
+  border: solid 0.0625rem rgba(0, 0, 0, 0.1);
+  margin: 0;
+  background-color: var(--grayscale300);
+  animation: skeleton 1.5s linear infinite;
+
+  @keyframes skeleton {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .skeletonCard {
+    width: 13rem;
+    height: 14.5rem;
+  }
+}
