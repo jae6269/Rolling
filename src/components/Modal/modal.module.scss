@@ -1,4 +1,4 @@
-.background {
+@mixin modal-background {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +10,10 @@
   right: 0;
   bottom: 0;
   z-index: 100;
+}
 
+.background {
+  @include modal-background;
   .container {
     width: 37.5rem;
     height: 29.75rem;

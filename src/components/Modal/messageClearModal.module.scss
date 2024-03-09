@@ -1,0 +1,66 @@
+@use 'modal.module' as modal;
+
+@mixin modal-button {
+  width: 9.375rem;
+  height: 2.4375rem;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 0.375rem;
+  background: var(--purple600);
+  cursor: pointer;
+  color: var(--white);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px; /* 162.5% */
+  letter-spacing: -0.16px;
+  &:hover {
+    background-color: var(--purple700);
+  }
+  &:active {
+    background-color: var(--purple800);
+  }
+}
+
+.clearModalBackground {
+  @include modal.modal-background;
+  .clearModal {
+    width: 25rem;
+    height: 15.625rem;
+    padding: 2.5rem;
+    flex-shrink: 0;
+    border-radius: 1rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    .modalText {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      color: var(--grayscale700);
+
+      /* Font/28 Bold */
+      font-size: 30px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 42px; /* 150% */
+      letter-spacing: -0.28px;
+      text-align: center;
+    }
+    .modalButtons {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      .modalButton {
+        @include modal-button;
+      }
+    }
+  }
+}
