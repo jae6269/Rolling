@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './messageClearModal.module.scss';
 
-function MessageClearModal({ url, name, handleClose }) {
+function MessageClearModal({ url, handleClose }) {
   const navigate = useNavigate();
   const handleMessageClear = e => {
     e.preventDefault();
@@ -16,10 +16,9 @@ function MessageClearModal({ url, name, handleClose }) {
     <div className={styles.clearModalBackground}>
       <div className={styles.clearModal}>
         <p className={styles.modalText}>
-          To. {name}
-          <br /> 롤링페이퍼를
+          이 롤링페이퍼를
           <br />
-          삭제할까요??
+          모두 삭제할까요??
         </p>
         <div className={styles.modalButtons}>
           <button

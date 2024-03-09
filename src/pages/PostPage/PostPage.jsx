@@ -96,7 +96,6 @@ function PostPage() {
       {isClearModalOpen && (
         <MessageClearModal
           url={recipientUrl}
-          name={recipients.name}
           handleClose={handleClearModalSwitch}
         />
       )}
