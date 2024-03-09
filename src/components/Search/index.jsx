@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from './SearchModal';
 import ListOfCard from '../CardList/ListOfCard';
 import styles from './index.module.scss';
+import { searchBtn } from '../../utils/imageImport';
 
 const Search = ({ data }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,7 +24,7 @@ const Search = ({ data }) => {
   return (
     <div className={styles.searchContainer}>
       <button type="button" onClick={handleToggleModal}>
-        🔍
+        <img src={searchBtn} alt="search button" />
       </button>
       <Modal isOpen={showModal} onClose={handleToggleModal}>
         <div className={styles.searchBox}>
@@ -33,6 +34,11 @@ const Search = ({ data }) => {
             value={searchTerm}
             onChange={handleSearchInputChange}
             className={styles.inputBox}
+          />
+          <img
+            className={styles.searchIcon}
+            src={searchBtn}
+            alt="search button"
           />
           <div className={styles.cardList}>
             {searchTerm &&

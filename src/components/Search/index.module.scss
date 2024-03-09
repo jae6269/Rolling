@@ -11,9 +11,18 @@
   left: 2rem;
   gap: 2rem;
 
+  .searchIcon {
+    position: absolute;
+    width: 2rem;
+    height: 2rem;
+    top: -0.2rem;
+    left: 0.25rem;
+  }
+
   .inputBox {
     margin-left: 1rem;
     padding: 0.5rem;
+    padding-left: 1.5rem;
     width: 30rem;
     height: 2rem;
     border: none;
@@ -33,5 +42,6 @@
     flex-wrap: nowrap;
     overflow-x: auto;
     gap: 10px;
+    padding-bottom: 0.5rem;
   }
 }
