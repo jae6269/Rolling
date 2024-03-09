@@ -1,0 +1,117 @@
+.plus {
+  background-color: var(--grayscale500);
+  width: 3.5rem;
+  height: 3.5rem;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--grayscale600);
+  }
+  &:active,
+  &:focus {
+    background-color: var(--grayscale700);
+  }
+  &:disabled {
+    background-color: var(--grayscale300);
+    cursor: default;
+  }
+}
+.deleted {
+  width: 2.25rem;
+  height: 2.25rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  border: 0.0625rem solid var(--grayscale300);
+  padding: 0;
+  cursor: pointer;
+
+  &:hover,
+  &:active {
+    background-color: var(--grayscale100);
+  }
+  &:focus {
+    background-color: var(--white);
+    border: 0.0625rem solid var(--grayscale500);
+  }
+  &:disabled {
+    background-color: var(--grayscale300);
+    cursor: default;
+  }
+}
+.primary {
+  width: 100%;
+  background-color: var(--purple600);
+  border: none;
+  color: var(--white);
+  border-radius: 0.5rem;
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--purple700);
+  }
+  &:active {
+    background-color: var(--purple800);
+  }
+  &:focus {
+    border: 0.0625rem solid var(--purple900);
+    background-color: var(--purple800);
+  }
+  &:disabled {
+    background-color: var(--grayscale300);
+    cursor: default;
+  }
+}
+.secondary {
+  border: 0.0625rem solid var(--purple600);
+  color: var(--purple600);
+  background-color: var(--white);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  width: 7.625rem;
+  &:hover {
+    border: 0.0625rem solid var(--purple700);
+    background-color: var(--purple100);
+  }
+  &:active {
+    border: 0.0625rem solid var(--purple800);
+    background-color: var(--purple100);
+  }
+  &:focus {
+    border: 0.0625rem solid var(--purple800);
+  }
+  &:disabled {
+    background-color: var(--grayscale300);
+    color: var(--white);
+    border: none;
+    cursor: default;
+  }
+}
+.outlined {
+  background-color: white;
+  font-size: 600;
+  border: 0.0625rem solid var(--grayscale300);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--grayscale100);
+  }
+  &:active {
+    background-color: var(--grayscale100);
+  }
+  &:focus {
+    background-color: white;
+    border: 0.0625rem solid var(--grayscale500);
+  }
+  &:disabled {
+    background-color: var(--grayscale300);
+    color: var(--white);
+    border: none;
+    cursor: default;
+  }
+}
