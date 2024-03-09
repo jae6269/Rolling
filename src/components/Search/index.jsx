@@ -29,7 +29,7 @@ const Search = ({ data }) => {
         <div className={styles.searchBox}>
           <input
             type="text"
-            placeholder="롤링 페이퍼를 검색해 보세요🔍"
+            placeholder="롤링 페이퍼를 검색해 보세요"
             value={searchTerm}
             onChange={handleSearchInputChange}
             className={styles.inputBox}
