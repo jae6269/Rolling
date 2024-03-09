@@ -29,6 +29,7 @@ function MessageCreatePage() {
 
   const messagesURL = `${POST_BASE_URL}/${id}/messages/`;
 
+  // 서버에서 프로필 이미지 받아오기
   useEffect(() => {
     async function getData() {
       try {
@@ -49,10 +50,12 @@ function MessageCreatePage() {
     getData();
   }, []);
 
+  // 인풋에 입력한 보내는 이 변수 설정
   const handleSenderChange = e => {
     setSender(e.target.value);
   };
 
+  // 인풋에서 Blur할 때 값이 없으면 오류메세지
   const handleInputBlur = () => {
     if (!sender.trim()) {
       setInvalid(true);
@@ -61,11 +64,13 @@ function MessageCreatePage() {
     }
   };
 
+  // 큰 원에 선택된 이미지를 클릭하면 다시 기본 이미지로 돌아감
   const handleSelectedImageClick = e => {
     e.target.src = defaultImage;
     setProfileImage(defaultImage);
   };
 
+  // 이미지를 선택하면 이미지를 어둡게 처리
   const handleProfileImageClick = e => {
     setProfileImage(e.target.src);
     setSelectedImage(e.target.src);
@@ -77,6 +82,7 @@ function MessageCreatePage() {
     e.target.className = `${styles.profileImage} ${styles.blur}`;
   };
 
+  // 서버로 post 보낼 내용
   const newMessageInfo = {
     sender,
     relationship: relation,
@@ -85,6 +91,7 @@ function MessageCreatePage() {
     profileImageURL: profileImage,
   };
 
+  // 서버에 리퀘스트 보낸 후 롤링페이퍼 페이지로이동
   const handleCreateMessage = async () => {
     try {
       await fetch(`${messagesURL}`, {
@@ -107,13 +114,12 @@ function MessageCreatePage() {
     setFont(e.target.textContent);
   };
 
+  // 에디터에 입력한 글자를 html코드로 변환해서 보냄
   const onEditorStateChange = editorState => {
     console.log(editorState);
     const stateToText = draftToHtml(
       convertToRaw(editorState.getCurrentContent()),
     );
-    // .getCurrentContent()
-    // .getPlainText('\u0001');
     setText(stateToText);
   };
 
