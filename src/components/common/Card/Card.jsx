@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import parse from 'html-react-parser';
 import styles from './card.module.scss';
 import formatCardCreatedDate from '../../../utils/formatDataFunctions';
 import Profile from '../Profile/Profile';
@@ -18,6 +19,7 @@ function Card({ props, isEditMode, cards, setCards }) {
     createdAt,
   } = props;
   const date = formatCardCreatedDate(createdAt);
+  const convertedContent = parse(content);
 
   const handleModalSwitch = e => {
     e.preventDefault();
@@ -55,7 +57,7 @@ function Card({ props, isEditMode, cards, setCards }) {
         )}
         <hr className={styles.underline} />
         <p className={styles.text} style={{ fontFamily: font }}>
-          {content}
+          {convertedContent}
         </p>
         <p className={styles.date} style={{ fontFamily: font }}>
           {date}

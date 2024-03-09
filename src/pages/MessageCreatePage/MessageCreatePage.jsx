@@ -1,12 +1,15 @@
-import { useEffect, useState, React } from 'react';
+import { React, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Editor } from 'react-draft-wysiwyg';
 // eslint-disable-next-line import/no-relative-packages
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
-import Header from '../../components/common/Header';
-import styles from './messageCreatePage.module.scss';
+import { useMediaQuery } from 'react-responsive';
+import { convertToRaw } from 'draft-js';
+import draftToHtml from 'draftjs-to-html';
 import { POST_BASE_URL, PROFILE_IMAGE_URL } from '../../constants/fetchUrl';
 import Dropdown from '../../components/Textfield';
+import Header from '../../components/common/Header';
+import styles from './messageCreatePage.module.scss';
 
 function MessageCreatePage() {
   const [invalid, setInvalid] = useState(false);
@@ -22,6 +25,8 @@ function MessageCreatePage() {
   const [font, setFont] = useState('Noto Sans');
   const navigate = useNavigate();
   const { id } = useParams();
+  const isEditorToolbarChanged = useMediaQuery({ maxWidth: 624 });
+
   const messagesURL = `${POST_BASE_URL}/${id}/messages/`;
 
   useEffect(() => {
@@ -82,14 +87,12 @@ function MessageCreatePage() {
 
   const handleCreateMessage = async () => {
     try {
-      const response = await fetch(`${messagesURL}`, {
+      await fetch(`${messagesURL}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newMessageInfo),
       });
 
-      const result = await response.json();
-      console.log(result);
       navigate(`/post/${id}`);
     } catch (error) {
       console.log(`${messagesURL}에 대한 post error : ${error}`);
@@ -105,7 +108,12 @@ function MessageCreatePage() {
   };
 
   const onEditorStateChange = editorState => {
-    const stateToText = editorState.getCurrentContent().getPlainText('\u0001');
+    console.log(editorState);
+    const stateToText = draftToHtml(
+      convertToRaw(editorState.getCurrentContent()),
+    );
+    // .getCurrentContent()
+    // .getPlainText('\u0001');
     setText(stateToText);
   };
 
@@ -191,13 +199,17 @@ function MessageCreatePage() {
               'fontSize',
               'list',
               'textAlign',
-              'colorPicker',
               'link',
-              'embedded',
               'emoji',
-              'remove',
               'history',
             ],
+            inline: {
+              inDropdown: false,
+              className: undefined,
+              component: undefined,
+              dropdownClassName: undefined,
+              options: ['bold', 'italic', 'underline', 'strikethrough'],
+            },
             list: { inDropdown: true },
             textAlign: { inDropdown: true },
             link: { inDropdown: true },
@@ -218,7 +230,7 @@ function MessageCreatePage() {
           editorStyle={{
             border: 'none',
             padding: '0 1.25rem',
-            height: '10.5rem',
+            height: isEditorToolbarChanged ? '10rem' : '12rem',
           }}
           localization={{
             locale: 'ko',
