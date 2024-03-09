@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { arrowTopBtn, arrowDownBtn } from '../../utils/imageImport';
 import styles from './index.module.scss';
 
-function Dropdown({ options }) {
+function Dropdown({ id, onChange, options }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(
     options.length > 0 ? options[0] : 'Placeholder',
@@ -15,9 +15,10 @@ function Dropdown({ options }) {
     setIsOpen(!isOpen);
   };
 
-  const handleOptionClick = option => {
+  const handleOptionClick = (e, option) => {
     setSelectedOption(option);
     setIsOpen(false);
+    onChange(e);
   };
 
   return (
@@ -34,6 +35,7 @@ function Dropdown({ options }) {
           className={styles.selectedOption}
           value={selectedOption}
           readOnly
+          id={id}
         />
         <span className={styles.icon}>
           <img src={isOpen ? arrowTopBtn : arrowDownBtn} alt="" />
@@ -45,7 +47,9 @@ function Dropdown({ options }) {
             <li
               key={option}
               className={styles.dropdownItem}
-              onClick={() => handleOptionClick(option)}
+              onClick={e => {
+                handleOptionClick(e, option);
+              }}
               role="option"
               aria-selected={option === selectedOption}
             >

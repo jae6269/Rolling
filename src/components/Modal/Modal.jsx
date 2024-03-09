@@ -1,4 +1,5 @@
 import React from 'react';
+import parse from 'html-react-parser';
 import styles from './modal.module.scss';
 import Profile from '../common/Profile/Profile';
 import formatCardCreatedDate from '../../utils/formatDataFunctions';
@@ -24,6 +25,7 @@ function Modal({ props, onClick }) {
   const { sender, profileImageURL, relationship, content, font, createdAt } =
     props;
   const date = formatCardCreatedDate(createdAt);
+  const convertedContent = parse(content);
   return (
     <div className={styles.background}>
       <div className={styles.container}>
@@ -39,7 +41,7 @@ function Modal({ props, onClick }) {
           </p>
         </div>
         <div className={styles.text} style={{ fontFamily: font }}>
-          {content}
+          {convertedContent}
         </div>
         <button type="button" className={styles.button} onClick={onClick}>
           확인
