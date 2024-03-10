@@ -6,6 +6,7 @@ import useFetchData from '../../hooks/useFetchData';
 import { LIST_URL, SORT_LIKE, POST_BASE_URL } from '../../constants/fetchUrl';
 import styles from './listPage.module.scss';
 import Search from '../../components/Search';
+import Button from '../../components/common/Button/Button';
 
 function ListPage() {
   const popularDataURL = `${LIST_URL}${SORT_LIKE}`;
@@ -38,7 +39,9 @@ function ListPage() {
         <Header buttonOn />
       </nav>
       <main className={styles.mainContainer}>
-        <Search data={searchRecipients} />
+        <div className={styles.searchContainer}>
+          <Search data={searchRecipients} />
+        </div>
         <div className={styles.articleContainer}>
           <div>
             <h2 className={styles.listTitle}>인기 롤링 페이퍼 🔥</h2>
@@ -51,9 +54,9 @@ function ListPage() {
         </div>
         <div className={styles.buttonContainer}>
           <Link to="/post">
-            <button className={styles.linkButton} type="button">
+            <Button buttonStyle="primary" buttonHeight={56} main>
               나도 만들어보기
-            </button>
+            </Button>
           </Link>
         </div>
       </main>
