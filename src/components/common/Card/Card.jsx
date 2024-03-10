@@ -19,32 +19,23 @@ function Card({ props, isEditMode, cards, setCards }) {
     createdAt,
   } = props;
   const date = formatCardCreatedDate(createdAt);
-
-  // convertedContent안의 p태그에 접근해 스타일 넣기
   // eslint-disable-next-line no-shadow
-  const getOptions = (font, styles) => ({
-    // eslint-disable-next-line react/no-unstable-nested-components, consistent-return
-    replace: domNode => {
-      if (domNode.type === 'tag' && domNode.name === 'p') {
-        return (
-          <p className={styles.text} style={{ fontFamily: font }}>
-            {domNode.children.map((child, index) =>
-              child.type === 'text'
-                ? child.data
-                : React.createElement(
-                    child.name,
-                    // eslint-disable-next-line react/no-array-index-key
-                    { key: index },
-                    child.children.map(c => c.data),
-                  ),
-            )}
-          </p>
-        );
+  const convertContentWithStyle = content => {
+    const parsedContent = parse(content);
+    const styledContent = React.Children.map(parsedContent, child => {
+      if (React.isValidElement(child)) {
+        // 모든 자식 요소에 스타일 적용
+        return React.cloneElement(child, {
+          style: { fontFamily: font },
+          className: styles.text,
+        });
+        // eslint-disable-next-line no-else-return
+      } else {
+        return child;
       }
-    },
-  });
-
-  const convertedContent = parse(content, getOptions(font, styles));
+    });
+    return styledContent;
+  };
 
   const handleModalSwitch = e => {
     e.preventDefault();
@@ -81,11 +72,9 @@ function Card({ props, isEditMode, cards, setCards }) {
           </div>
         )}
         <hr className={styles.underline} />
-        <div>
-          <p className={styles.text} style={{ fontFamily: font }}>
-            {convertedContent}
-          </p>
-        </div>
+        <p className={styles.text} style={{ fontFamily: font }}>
+          {convertContentWithStyle(content)}
+        </p>
         <p className={styles.date} style={{ fontFamily: font }}>
           {date}
         </p>
