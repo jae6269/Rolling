@@ -39,10 +39,10 @@ function ListPage() {
         <Header buttonOn />
       </nav>
       <main className={styles.mainContainer}>
-        <div className={styles.searchContainer}>
-          <Search data={searchRecipients} />
-        </div>
         <div className={styles.articleContainer}>
+          <div className={styles.searchContainer}>
+            <Search data={searchRecipients} />
+          </div>
           <div>
             <h2 className={styles.listTitle}>인기 롤링 페이퍼 🔥</h2>
             <Carousel cards={popularRecipients} />
