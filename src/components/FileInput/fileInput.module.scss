@@ -1,0 +1,12 @@
+.inputFileButton {
+  background-color: var(--grayscale300);
+  width: 3.5rem;
+  height: 3.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  &:hover {
+    background-color: var(--grayscale400);
+  }
+}

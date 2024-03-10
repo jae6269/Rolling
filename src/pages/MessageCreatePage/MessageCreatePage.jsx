@@ -1,15 +1,16 @@
-import { React, useEffect, useState } from 'react';
+import { React, useEffect, useRef, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Editor } from 'react-draft-wysiwyg';
 // eslint-disable-next-line import/no-relative-packages
 import '../../../node_modules/react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import { useMediaQuery } from 'react-responsive';
-import { convertToRaw } from 'draft-js';
+import { EditorState, convertToRaw } from 'draft-js';
 import draftToHtml from 'draftjs-to-html';
 import { POST_BASE_URL, PROFILE_IMAGE_URL } from '../../constants/fetchUrl';
 import Dropdown from '../../components/Textfield';
 import Header from '../../components/common/Header';
 import styles from './messageCreatePage.module.scss';
+import FileInput from '../../components/FileInput/FileInput';
 
 function MessageCreatePage() {
   const [invalid, setInvalid] = useState(false);
@@ -21,8 +22,13 @@ function MessageCreatePage() {
   const [selectedImage, setSelectedImage] = useState('');
   const [imageUrlList, setImageUrlList] = useState([]);
   const [text, setText] = useState('');
+  const [plainText, setPlainText] = useState('');
   const [relation, setRelation] = useState('지인');
   const [font, setFont] = useState('Noto Sans');
+  const [editorState, setEditorState] = useState(() =>
+    EditorState.createEmpty(),
+  );
+  const fileInputRef = useRef(null);
   const navigate = useNavigate();
   const { id } = useParams();
   const isEditorToolbarChanged = useMediaQuery({ maxWidth: 624 });
@@ -68,6 +74,7 @@ function MessageCreatePage() {
   const handleSelectedImageClick = e => {
     e.target.src = defaultImage;
     setProfileImage(defaultImage);
+    fileInputRef.current.value = '';
   };
 
   // 이미지를 선택하면 이미지를 어둡게 처리
@@ -77,7 +84,10 @@ function MessageCreatePage() {
     }
     setProfileImage(e.target.src);
     setSelectedImage(e.target.src);
-    const profileImages = e.target.parentElement.parentElement.children;
+    const profileImageArray = Array.from(
+      e.target.parentElement.parentElement.children,
+    );
+    const profileImages = profileImageArray.slice(0, -2);
     // eslint-disable-next-line no-restricted-syntax
     for (const image of profileImages) {
       image.children[0].className = `${styles.profileImage}`;
@@ -93,7 +103,7 @@ function MessageCreatePage() {
     font,
     profileImageURL: profileImage,
   };
-
+  console.log(newMessageInfo);
   // 서버에 리퀘스트 보낸 후 롤링페이퍼 페이지로이동
   const handleCreateMessage = async () => {
     try {
@@ -118,11 +128,12 @@ function MessageCreatePage() {
   };
 
   // 에디터에 입력한 글자를 html코드로 변환해서 보냄
-  const onEditorStateChange = editorState => {
-    console.log(editorState);
+  const onEditorStateChange = state => {
+    setEditorState(state);
     const stateToText = draftToHtml(
       convertToRaw(editorState.getCurrentContent()),
     );
+    setPlainText(editorState.getCurrentContent().getPlainText('\u0001'));
     setText(stateToText);
   };
 
@@ -182,6 +193,11 @@ function MessageCreatePage() {
                     />
                   </button>
                 ))}
+              <FileInput
+                setSelectedImage={setSelectedImage}
+                fileInputRef={fileInputRef}
+                setProfileImage={setProfileImage}
+              />
             </div>
           </div>
         </div>
@@ -244,6 +260,7 @@ function MessageCreatePage() {
           localization={{
             locale: 'ko',
           }}
+          editorState={editorState}
           onEditorStateChange={onEditorStateChange}
         />
         <form className={styles.form}>
@@ -265,8 +282,8 @@ function MessageCreatePage() {
         <button
           type="button"
           onClick={handleCreateMessage}
-          className={`${styles.messageCreateButton} ${!sender.trim() || !text.trim() ? styles.disabledButton : ''}`}
-          disabled={!sender.trim() || !text.trim()}
+          className={`${styles.messageCreateButton} ${!sender.trim() || !plainText.trim() ? styles.disabledButton : ''}`}
+          disabled={!sender.trim() || !plainText.trim()}
         >
           생성하기
         </button>
