@@ -75,15 +75,16 @@ function CardCreatePage() {
             <p className={styles.errorMessage}>값을 입력해 주세요.</p>
           )}
         </form>
-        <h1>배경화면을 선택해 주세요.</h1>
-        <p>컬러를 선택하거나, 이미지를 선택할 수 있습니다.</p>
+        <h1 className={styles.textHead}>배경화면을 선택해 주세요.</h1>
+        <p className={styles.text}>
+          컬러를 선택하거나, 이미지를 선택할 수 있습니다.
+        </p>
         <Option
           selectedOption={selectedOption}
           setSelectedOption={setSelectedOption}
           selectedButton={selectedButton}
           setSelectedButton={setSelectedButton}
         />
-        {/* 상민님 버튼 컴포넌트로 대체될 예정 */}
         <button
           type="button"
           className={`${styles.cardCreateButton} ${!inputValue.trim() ? styles.disabledButton : ''}`}

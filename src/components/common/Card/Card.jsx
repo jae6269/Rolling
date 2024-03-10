@@ -19,7 +19,32 @@ function Card({ props, isEditMode, cards, setCards }) {
     createdAt,
   } = props;
   const date = formatCardCreatedDate(createdAt);
-  const convertedContent = parse(content);
+
+  // convertedContent안의 p태그에 접근해 스타일 넣기
+  // eslint-disable-next-line no-shadow
+  const getOptions = (font, styles) => ({
+    // eslint-disable-next-line react/no-unstable-nested-components, consistent-return
+    replace: domNode => {
+      if (domNode.type === 'tag' && domNode.name === 'p') {
+        return (
+          <p className={styles.text} style={{ fontFamily: font }}>
+            {domNode.children.map((child, index) =>
+              child.type === 'text'
+                ? child.data
+                : React.createElement(
+                    child.name,
+                    // eslint-disable-next-line react/no-array-index-key
+                    { key: index },
+                    child.children.map(c => c.data),
+                  ),
+            )}
+          </p>
+        );
+      }
+    },
+  });
+
+  const convertedContent = parse(content, getOptions(font, styles));
 
   const handleModalSwitch = e => {
     e.preventDefault();
@@ -56,9 +81,11 @@ function Card({ props, isEditMode, cards, setCards }) {
           </div>
         )}
         <hr className={styles.underline} />
-        <p className={styles.text} style={{ fontFamily: font }}>
-          {convertedContent}
-        </p>
+        <div>
+          <p className={styles.text} style={{ fontFamily: font }}>
+            {convertedContent}
+          </p>
+        </div>
         <p className={styles.date} style={{ fontFamily: font }}>
           {date}
         </p>

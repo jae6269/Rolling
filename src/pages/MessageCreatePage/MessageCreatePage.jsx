@@ -199,17 +199,18 @@ function MessageCreatePage() {
         <Editor
           wrapperClassName="wrapper-class"
           editorClassName="editor-class"
-          toolbarClassName="toolbar-class"
+          toolbarClassName="custom-toolbar-wrapper"
           toolbar={{
             // inDropdown: 해당 항목과 관련된 항목을 드롭다운으로 나타낼것인지
             options: [
               'inline',
+              'colorPicker',
+              'emoji',
               'blockType',
               'fontSize',
               'list',
               'textAlign',
               'link',
-              'emoji',
               'history',
             ],
             inline: {
@@ -232,7 +233,7 @@ function MessageCreatePage() {
             margin: '0.75rem 0 3.125rem',
           }}
           toolbarStyle={{
-            backgroundColor: 'var(--grayscale200)',
+            // backgroundColor: 'var(--grayscale200)',
             borderTopLeftRadius: '1rem',
             borderTopRightRadius: '1rem',
           }}
