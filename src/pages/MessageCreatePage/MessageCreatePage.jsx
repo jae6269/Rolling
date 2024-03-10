@@ -72,14 +72,17 @@ function MessageCreatePage() {
 
   // 이미지를 선택하면 이미지를 어둡게 처리
   const handleProfileImageClick = e => {
-    setProfileImage(e.target.src);
-    setSelectedImage(e.target.src);
-    const profileImages = e.target.parentElement.parentElement.children;
-    // eslint-disable-next-line no-restricted-syntax
-    for (const image of profileImages) {
-      image.children[0].className = `${styles.profileImage}`;
+    // 클릭된 요소가 이미지인 경우에만 이벤트 처리
+    if (e.target.tagName.toLowerCase() === 'img') {
+      setProfileImage(e.target.src);
+      setSelectedImage(e.target.src);
+      const profileImages = e.target.parentElement.parentElement.children;
+      // eslint-disable-next-line no-restricted-syntax
+      for (const image of profileImages) {
+        image.children[0].className = `${styles.profileImage}`;
+      }
+      e.target.className = `${styles.profileImage} ${styles.blur}`;
     }
-    e.target.className = `${styles.profileImage} ${styles.blur}`;
   };
 
   // 서버로 post 보낼 내용
