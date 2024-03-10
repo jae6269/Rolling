@@ -226,6 +226,7 @@ function MessageCreatePage() {
               'textAlign',
               'link',
               'emoji',
+              'colorPicker',
               'history',
             ],
             inline: {
