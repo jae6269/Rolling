@@ -161,9 +161,9 @@
             border: 0.0625rem solid var(--grayscale500);
           }
         }
+
         .shareOptions {
           position: absolute;
-          cursor: pointer;
           top: 2.5rem;
           right: -0.5rem;
           display: flex;
@@ -175,6 +175,7 @@
           height: 7.5rem;
           padding: 0.625rem 0;
           z-index: 5;
+
           .shareOption {
             padding: 0.75rem 1rem;
             font-size: 1rem;
@@ -184,11 +185,11 @@
             align-items: center;
             background-color: var(--white);
             border: none;
-          }
-
-          .shareOption button:hover {
             cursor: pointer;
-            background-color: var(--grayscale100);
+
+            &:hover {
+              background-color: var(--grayscale100);
+            }
           }
         }
       }
