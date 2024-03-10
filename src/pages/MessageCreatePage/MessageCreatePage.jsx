@@ -72,6 +72,9 @@ function MessageCreatePage() {
 
   // 이미지를 선택하면 이미지를 어둡게 처리
   const handleProfileImageClick = e => {
+    if (!e.target.src) {
+      return;
+    }
     setProfileImage(e.target.src);
     setSelectedImage(e.target.src);
     const profileImages = e.target.parentElement.parentElement.children;
