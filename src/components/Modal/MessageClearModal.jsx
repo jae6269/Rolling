@@ -16,9 +16,9 @@ function MessageClearModal({ url, handleClose }) {
     <div className={styles.clearModalBackground}>
       <div className={styles.clearModal}>
         <p className={styles.modalText}>
-          이 롤링페이퍼를
+          이 롤링 페이퍼를
           <br />
-          모두 삭제할까요??
+          삭제할까요?
         </p>
         <div className={styles.modalButtons}>
           <button
