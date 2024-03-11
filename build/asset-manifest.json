@@ -1,0 +1,40 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f9ca6a52.css",
+    "main.js": "/static/js/main.73f78286.js",
+    "static/media/NotoSansKR-VariableFont_wght.ttf": "/static/media/NotoSansKR-VariableFont_wght.33752a94ca5252213de8.ttf",
+    "static/media/나눔손글씨 손편지체.ttf": "/static/media/나눔손글씨 손편지체.75bfed62464db7203c71.ttf",
+    "static/media/나눔명조.ttf": "/static/media/나눔명조.ffd30d3e7e25b6db8080.ttf",
+    "static/media/main-article-1.svg": "/static/media/main-article-1.5d18c87850bd982039977a1a39981da3.svg",
+    "static/media/main-article-2.png": "/static/media/main-article-2.2d82e9b2ba824c55279e.png",
+    "static/media/loadingSpinner.gif": "/static/media/loadingSpinner.251f3e4778d183354393.gif",
+    "static/media/logo-img.svg": "/static/media/logo-img.91fb29333c999252bd1b75d922168be6.svg",
+    "static/media/smile.svg": "/static/media/smile.6d3fc640c80d5cb7a5690ceda0dd68ae.svg",
+    "static/media/smile-white.svg": "/static/media/smile-white.cbe8f0513bab737554b54cfe0ee8b364.svg",
+    "static/media/add-emoji.svg": "/static/media/add-emoji.ae53822bc45a3e3481f81c81d50cf7a6.svg",
+    "static/media/deleted-black.svg": "/static/media/deleted-black.7e3e5f4220c0d1c30541b7110d86fda8.svg",
+    "static/media/trashcanIcon.svg": "/static/media/trashcanIcon.c18bb0934a64bbbcfb3466ab826fd26b.svg",
+    "static/media/deleted-white.svg": "/static/media/deleted-white.53aeb804501d455a743eec97750bc56c.svg",
+    "static/media/share-button.svg": "/static/media/share-button.e76a9b99cc8515484f108c773460b42d.svg",
+    "index.html": "/index.html",
+    "static/media/search.svg": "/static/media/search.d3d553d974d79b3d6c028aa4093caee2.svg",
+    "static/media/completedIcon.svg": "/static/media/completedIcon.4275bb1b8ebdba7e8182872fc987b137.svg",
+    "static/media/purple-shadow.svg": "/static/media/purple-shadow.191ca8b8ed8a522025991393962030fa.svg",
+    "static/media/green-shadow.svg": "/static/media/green-shadow.caa449f7d3e80b8ea005c98c239b958c.svg",
+    "static/media/closeIcon.svg": "/static/media/closeIcon.e484389117cefdf4c758c9a0e411269a.svg",
+    "static/media/blue-shadow.svg": "/static/media/blue-shadow.bd515614a3cb42a48df164d3b1a471e6.svg",
+    "static/media/beige-shadow.svg": "/static/media/beige-shadow.56ff4743c2516982d00e1b98a046f392.svg",
+    "static/media/plusLogo.svg": "/static/media/plusLogo.92bf76ecfb37d7816544598ca872f57e.svg",
+    "static/media/plus.svg": "/static/media/plus.1a8599281292811d23f35ea9d9b6e055.svg",
+    "static/media/option-btn.svg": "/static/media/option-btn.70bd0b8d9f6da56839170d1975612bf8.svg",
+    "static/media/arrow_down.svg": "/static/media/arrow_down.88c061be6f64a6f3b97586c4f579376e.svg",
+    "static/media/arrow_top.svg": "/static/media/arrow_top.73b149a94c97c12f77f4a451a6872f70.svg",
+    "static/media/vertical-line.svg": "/static/media/vertical-line.e511554255ce6c441363ec2d0a7b1544.svg",
+    "main.f9ca6a52.css.map": "/static/css/main.f9ca6a52.css.map",
+    "main.73f78286.js.map": "/static/js/main.73f78286.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9ca6a52.css",
+    "static/js/main.73f78286.js"
+  ]
+}
