@@ -26,15 +26,6 @@ function FileInput({ setSelectedImage, fileInputRef, setProfileImage }) {
         `https://api.imgbb.com/1/upload에 대한 post error : ${error}`,
       );
     }
-
-    // const { files } = e.target;
-    // const uploadFile = files[0];
-    // const reader = new FileReader();
-    // reader.readAsDataURL(uploadFile);
-    // reader.onloadend = () => {
-    //   setSelectedImage(reader.result);
-    //   setProfileImage(reader.result);
-    // };
   };
   return (
     <>
