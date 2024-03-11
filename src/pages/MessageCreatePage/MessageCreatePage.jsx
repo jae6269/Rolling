@@ -11,6 +11,7 @@ import Dropdown from '../../components/Textfield';
 import Header from '../../components/common/Header';
 import styles from './messageCreatePage.module.scss';
 import FileInput from '../../components/FileInput/FileInput';
+import Button from '../../components/common/Button/Button';
 
 function MessageCreatePage() {
   const [invalid, setInvalid] = useState(false);
@@ -103,7 +104,7 @@ function MessageCreatePage() {
     font,
     profileImageURL: profileImage,
   };
-  console.log(newMessageInfo);
+
   // 서버에 리퀘스트 보낸 후 롤링페이퍼 페이지로이동
   const handleCreateMessage = async () => {
     try {
@@ -280,14 +281,12 @@ function MessageCreatePage() {
           />
         </form>
 
-        <button
-          type="button"
+        <Button
           onClick={handleCreateMessage}
-          className={`${styles.messageCreateButton} ${!sender.trim() || !plainText.trim() ? styles.disabledButton : ''}`}
           disabled={!sender.trim() || !plainText.trim()}
         >
           생성하기
-        </button>
+        </Button>
       </div>
     </>
   );
