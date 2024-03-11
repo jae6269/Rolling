@@ -23,7 +23,7 @@ function FileInput({ setSelectedImage, fileInputRef, setProfileImage }) {
       setProfileImage(result.data.url);
     } catch (error) {
       console.log(
-        `https://api.imgbb.com/1/upload?key=8d5867a9512390fb5e5dc97839aa36f6에 대한 post error : ${error}`,
+        `https://api.imgbb.com/1/upload에 대한 post error : ${error}`,
       );
     }
 
