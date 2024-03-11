@@ -32,7 +32,7 @@
   .errorMessage {
     color: var(--error);
     position: absolute;
-    top: 6rem;
+    top: 6.5rem;
     font-size: 0.75rem;
   }
 }
@@ -40,11 +40,6 @@ h1 {
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 2.25rem;
-}
-p {
-  font-size: 1rem;
-  margin: 0.25rem 0 1.5rem;
-  line-height: 1.625rem;
 }
 
 .profileImageContainer {

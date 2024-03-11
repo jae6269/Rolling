@@ -5,6 +5,7 @@ import styles from './cardCreatePage.module.scss';
 import useFetchData from '../../hooks/useFetchData';
 import Header from '../../components/common/Header';
 import { POST_BASE_URL, BACKGROUND_IMG_URL } from '../../constants/fetchUrl';
+import Button from '../../components/common/Button/Button';
 
 function CardCreatePage() {
   const [inputValue, setInputValue] = useState('');
@@ -85,15 +86,10 @@ function CardCreatePage() {
           selectedButton={selectedButton}
           setSelectedButton={setSelectedButton}
         />
-        <button
-          type="button"
-          className={`${styles.cardCreateButton} ${!inputValue.trim() ? styles.disabledButton : ''}`}
-          onClick={handleCreateRecipient}
-          // 공백 제외 인풋이 비어있으면 버튼 비활성화
-          disabled={!inputValue.trim()}
-        >
+        {/* // 공백 제외 인풋이 비어있으면 버튼 비활성화 */}
+        <Button onClick={handleCreateRecipient} disabled={!inputValue.trim()}>
           생성하기
-        </button>
+        </Button>
       </div>
     </>
   );

@@ -56,9 +56,9 @@ function Card({ props, isEditMode, cards, setCards }) {
           </div>
         )}
         <hr className={styles.underline} />
-        <p className={styles.text} style={{ fontFamily: font }}>
+        <div className={styles.text} style={{ fontFamily: font }}>
           {convertedContent}
-        </p>
+        </div>
         <p className={styles.date} style={{ fontFamily: font }}>
           {date}
         </p>

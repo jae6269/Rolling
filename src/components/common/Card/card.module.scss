@@ -41,6 +41,9 @@
   }
 
   .text {
+    * {
+      font-family: unset;
+    }
     width: 100%;
     flex-shrink: 0;
     overflow: hidden;
