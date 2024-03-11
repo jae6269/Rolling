@@ -5,7 +5,7 @@ import styles from './postCard.module.scss';
 function PostCard() {
   return (
     <button className={styles.postButton} type="button">
-      <img src={plusLogo} alt="post button" />
+      <img src={plusLogo} alt="post button" className={styles.rotatingImage} />
     </button>
   );
 }

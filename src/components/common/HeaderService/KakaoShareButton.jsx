@@ -25,8 +25,9 @@ export default function KakaoShareButton() {
       objectType: 'feed',
       content: {
         title: 'Rolling',
-        description: '롤링페이퍼',
-        imageUrl: '',
+        description: '누구나 손쉽게, 온라인 롤링 페이퍼를 만들 수 있어요',
+        imageUrl:
+          'https://raw.githubusercontent.com/HaeJungg/project-image/master/screen.png',
         link: {
           mobileWebUrl: realUrl,
         },

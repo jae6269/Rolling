@@ -13,6 +13,8 @@ import verticalLine from '../assets/vertical-line.svg';
 
 import logoImg from '../assets/logo-img.svg';
 
+import searchBtn from '../assets/search.svg';
+
 import mainFirstArticleImg from '../assets/main-article-1.svg';
 // svg로하면 이모지가 깨져서 png 파일입니다.
 import mainSecondArticleImg from '../assets/main-article-2.png';
@@ -38,6 +40,7 @@ export {
   logoImg,
   mainFirstArticleImg,
   mainSecondArticleImg,
+  searchBtn,
   plus,
   smileBlack,
   smileWhite,

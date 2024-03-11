@@ -23,6 +23,13 @@
 
   .articleContainer {
     margin-bottom: 2.5rem;
+    position: relative;
+
+    .searchContainer {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.75rem;
+    }
   }
 
   .buttonContainer {

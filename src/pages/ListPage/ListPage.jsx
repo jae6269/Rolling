@@ -1,25 +1,40 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../../components/common/Header';
 import Carousel from '../../components/CardList/Carousel';
 import useFetchData from '../../hooks/useFetchData';
-import { LIST_URL, SORT_LIKE } from '../../constants/fetchUrl';
+import { LIST_URL, SORT_LIKE, POST_BASE_URL } from '../../constants/fetchUrl';
 import styles from './listPage.module.scss';
+import Search from '../../components/Search';
+import Button from '../../components/common/Button/Button';
 
 function ListPage() {
   const popularDataURL = `${LIST_URL}${SORT_LIKE}`;
   const newestDataURL = `${LIST_URL}`;
 
+  const [deletedCards, setDeletedCards] = useState([]);
+
   const popularRecipientsData = useFetchData(popularDataURL);
   const newestRecipientsData = useFetchData(newestDataURL);
+  const searchRecipientsData = useFetchData(`${POST_BASE_URL}/?limit=50`);
 
-  // recipientsData가 유효하고 results 배열이 존재하는지 확인하는 함수
   const getValidRecipients = recipientsData =>
-    recipientsData && recipientsData.results ? recipientsData.results : [];
+    recipientsData && recipientsData.results
+      ? recipientsData.results.filter(card => !deletedCards.includes(card.id))
+      : [];
 
-  // 데이터 가져오기
   const popularRecipients = getValidRecipients(popularRecipientsData);
   const newestRecipients = getValidRecipients(newestRecipientsData);
+  const searchRecipients = getValidRecipients(searchRecipientsData);
+
+  useEffect(() => {
+    // 리스트가 새로고침될 때마다 삭제된 카드를 초기화
+    setDeletedCards([]);
+  }, []);
+
+  const handleCardDelete = cardId => {
+    setDeletedCards(prevDeletedCards => [...prevDeletedCards, cardId]);
+  };
 
   return (
     <>
@@ -28,21 +43,23 @@ function ListPage() {
       </nav>
       <main className={styles.mainContainer}>
         <div className={styles.articleContainer}>
+          <div className={styles.searchContainer}>
+            <Search data={searchRecipients} />
+          </div>
           <div>
             <h2 className={styles.listTitle}>인기 롤링 페이퍼 🔥</h2>
-            <Carousel cards={popularRecipients} />
+            <Carousel cards={popularRecipients} onDelete={handleCardDelete} />
           </div>
           <div>
             <h2 className={styles.listTitle}>최근에 만든 롤링 페이퍼 ⭐️️</h2>
-            <Carousel cards={newestRecipients} />
+            <Carousel cards={newestRecipients} onDelete={handleCardDelete} />
           </div>
         </div>
         <div className={styles.buttonContainer}>
-          {/* Link 컴포넌트로 버튼을 감싸기 */}
           <Link to="/post">
-            <button className={styles.linkButton} type="button">
+            <Button buttonStyle="primary" buttonHeight={56} main>
               나도 만들어보기
-            </button>
+            </Button>
           </Link>
         </div>
       </main>

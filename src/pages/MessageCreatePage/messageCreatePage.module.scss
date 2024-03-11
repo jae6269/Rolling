@@ -60,6 +60,7 @@ h1 {
   border-radius: 50%;
   width: 5rem;
   height: 5rem;
+  cursor: pointer;
 }
 
 .selectedImageButton {
@@ -82,11 +83,13 @@ h1 {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
+  cursor: pointer;
 }
 .profileImageButton {
   background: none;
   padding: 0;
   border: none;
+  cursor: default;
 }
 
 select {

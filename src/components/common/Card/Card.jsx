@@ -39,10 +39,10 @@ function Card({ props, isEditMode, cards, setCards }) {
 
   return (
     <>
-      <button
-        type="button"
+      <div
         className={styles.container}
         onClick={handleModalSwitch}
+        role="presentation"
       >
         <Profile
           profileImageURL={profileImageURL}
@@ -62,7 +62,7 @@ function Card({ props, isEditMode, cards, setCards }) {
         <p className={styles.date} style={{ fontFamily: font }}>
           {date}
         </p>
-      </button>
+      </div>
       {isModalOpen && <Modal props={props} onClick={handleModalSwitch} />}
     </>
   );

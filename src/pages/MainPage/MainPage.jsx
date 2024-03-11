@@ -6,6 +6,7 @@ import {
   mainSecondArticleImg,
 } from '../../utils/imageImport';
 import styles from './mainPage.module.scss';
+import Button from '../../components/common/Button/Button';
 
 function MainPage() {
   return (
@@ -50,9 +51,9 @@ function MainPage() {
         </article>
         <div className={styles.buttonArea}>
           <Link to="/list">
-            <button type="button" className={styles.toListBtn}>
+            <Button buttonStyle="primary" buttonHeight={56} main>
               구경해보기
-            </button>
+            </Button>
           </Link>
         </div>
       </main>
