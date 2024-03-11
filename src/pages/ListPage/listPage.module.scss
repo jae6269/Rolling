@@ -31,11 +31,23 @@
       right: 0.75rem;
     }
   }
+}
 
-  .buttonContainer {
-    padding: 3rem 0;
-    display: flex;
-    justify-content: center;
-    margin: auto;
+.buttonArea {
+  margin: 2rem auto;
+  text-align: center;
+}
+
+@media screen and (max-width: 1199px) {
+  .buttonArea {
+    width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .buttonArea {
+    width: calc(100% - 80px);
+    margin: 0 40px;
   }
 }

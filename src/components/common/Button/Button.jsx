@@ -26,6 +26,7 @@ function Button({
   onClick,
 }) {
   const isPcScreen = useMediaQuery({ minWidth: 1200 });
+
   if (buttonStyle === 'plus') {
     return (
       <button
@@ -55,6 +56,8 @@ function Button({
     if (main) {
       if (isPcScreen) {
         buttonWidth = '280px';
+      } else {
+        buttonWidth = '100%';
       }
     }
     return (
