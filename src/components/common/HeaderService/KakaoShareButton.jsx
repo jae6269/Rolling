@@ -6,7 +6,7 @@ const { Kakao } = window;
 
 export default function KakaoShareButton() {
   // 배포한 자신의 사이트
-  const realUrl = '';
+  const realUrl = window.location.href;
   // 로컬 주소 (localhost 3000 같은거)
   // const resultUrl = window.location.href;
 
