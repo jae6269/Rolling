@@ -19,23 +19,7 @@ function Card({ props, isEditMode, cards, setCards }) {
     createdAt,
   } = props;
   const date = formatCardCreatedDate(createdAt);
-  // eslint-disable-next-line no-shadow
-  const convertContentWithStyle = content => {
-    const parsedContent = parse(content);
-    const styledContent = React.Children.map(parsedContent, child => {
-      if (React.isValidElement(child)) {
-        // 모든 자식 요소에 스타일 적용
-        return React.cloneElement(child, {
-          style: { fontFamily: font },
-          className: styles.text,
-        });
-        // eslint-disable-next-line no-else-return
-      } else {
-        return child;
-      }
-    });
-    return styledContent;
-  };
+  const convertedContent = parse(content);
 
   const handleModalSwitch = e => {
     e.preventDefault();
@@ -55,10 +39,10 @@ function Card({ props, isEditMode, cards, setCards }) {
 
   return (
     <>
-      <button
-        type="button"
+      <div
         className={styles.container}
         onClick={handleModalSwitch}
+        role="presentation"
       >
         <Profile
           profileImageURL={profileImageURL}
@@ -73,12 +57,12 @@ function Card({ props, isEditMode, cards, setCards }) {
         )}
         <hr className={styles.underline} />
         <p className={styles.text} style={{ fontFamily: font }}>
-          {convertContentWithStyle(content)}
+          {convertedContent}
         </p>
         <p className={styles.date} style={{ fontFamily: font }}>
           {date}
         </p>
-      </button>
+      </div>
       {isModalOpen && <Modal props={props} onClick={handleModalSwitch} />}
     </>
   );

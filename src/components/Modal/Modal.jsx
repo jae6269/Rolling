@@ -25,25 +25,7 @@ function Modal({ props, onClick }) {
   const { sender, profileImageURL, relationship, content, font, createdAt } =
     props;
   const date = formatCardCreatedDate(createdAt);
-
-  // eslint-disable-next-line no-shadow
-  const convertContentWithStyle = content => {
-    const parsedContent = parse(content);
-    const styledContent = React.Children.map(parsedContent, child => {
-      if (React.isValidElement(child)) {
-        // 모든 자식 요소에 스타일 적용
-        return React.cloneElement(child, {
-          style: { fontFamily: font },
-          className: styles.text,
-        });
-        // eslint-disable-next-line no-else-return
-      } else {
-        return child;
-      }
-    });
-    return styledContent;
-  };
-
+  const convertedContent = parse(content);
   return (
     <div className={styles.background}>
       <div className={styles.container}>
@@ -58,9 +40,9 @@ function Modal({ props, onClick }) {
             {date}
           </p>
         </div>
-        <p className={styles.text} style={{ fontFamily: font }}>
-          {convertContentWithStyle(content)}
-        </p>
+        <div className={styles.text} style={{ fontFamily: font }}>
+          {convertedContent}
+        </div>
         <button type="button" className={styles.button} onClick={onClick}>
           확인
         </button>
