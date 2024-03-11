@@ -21,16 +21,9 @@ const Option = ({
     setSelectedOption(option);
     setSelectedButton(0);
   };
-  // console.log 나중에 데이터 연결하면 수정 예정
+
   const handleButtonClick = buttonIndex => {
     setSelectedButton(buttonIndex);
-    if (selectedOption === 'image' && imageUrls[buttonIndex]) {
-      // 이미지 모드일 때 URL 전달
-      console.log('Image URL:', imageUrls[buttonIndex]);
-    } else if (selectedOption === 'color') {
-      // 컬러 모드일 때 컬러 값 전달
-      console.log('Color Value:', colorValues[buttonIndex]);
-    }
   };
 
   return (
