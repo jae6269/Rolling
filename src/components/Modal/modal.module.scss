@@ -28,7 +28,7 @@
     gap: 1.25rem;
 
     @media (max-width: 48rem) {
-      width: calc(100vw - 60px);
+      width: calc(100vw - 48px);
       height: 400px;
     }
 
@@ -51,6 +51,9 @@
         font-weight: 400;
         line-height: 1.25rem; /* 142.857% */
         letter-spacing: -0.0044rem;
+        @media (max-width: 768px) {
+          display: none;
+        }
       }
     }
 
