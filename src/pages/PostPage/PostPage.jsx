@@ -45,7 +45,7 @@ function PostPage() {
 
   // 카드 데이터를 가져올 함수
   // 처음에는 8개, 그다음 무한스크롤(6개씩추가로 가져오도록 설정)
-  const getCards = async function () {
+  const getCards = async function cardsFetch() {
     let query = '';
     if (page !== 0) {
       query = `?limit=6&offset=${6 * (page - 1) + 8}`;
