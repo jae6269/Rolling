@@ -3,6 +3,7 @@ import Modal from './SearchModal';
 import ListOfCard from '../CardList/ListOfCard';
 import styles from './index.module.scss';
 import { searchBtn } from '../../utils/imageImport';
+import Button from '../common/Button/Button';
 
 const Search = ({ data }) => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -23,9 +24,13 @@ const Search = ({ data }) => {
 
   return (
     <div className={styles.searchContainer}>
-      <button type="button" onClick={handleToggleModal}>
-        <img src={searchBtn} alt="search button" />
-      </button>
+      <Button
+        buttonStyle="secondary"
+        buttonHeight={36}
+        onClick={handleToggleModal}
+      >
+        롤링 페이퍼 검색
+      </Button>
       <Modal isOpen={showModal} onClose={handleToggleModal}>
         <div className={styles.searchBox}>
           <input

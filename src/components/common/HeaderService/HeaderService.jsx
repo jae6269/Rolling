@@ -12,6 +12,7 @@ import {
   shareBtn,
   verticalLine,
 } from '../../../utils/imageImport';
+import Button from '../Button/Button';
 
 function HeaderService({
   recipientResult,
@@ -140,21 +141,24 @@ function HeaderService({
               </div>
             </div>
             <div className={styles.emojiPicker} ref={emojiPickerRef}>
-              <button
-                type="button"
-                className={styles.addEmojiMobile}
-                onClick={toggleEmojiPicker}
-              >
-                <img src={addEmojiBtn} alt="이모지 추가" />
-              </button>
-              <button
-                type="button"
-                className={styles.addEmojiTablet}
-                onClick={toggleEmojiPicker}
-              >
-                <img src={addEmojiBtn} alt="이모지 추가" />
-                추가
-              </button>
+              <div className={styles.addEmojiMobile}>
+                <Button
+                  buttonStyle="outlined"
+                  buttonHeight={28}
+                  smile
+                  onClick={toggleEmojiPicker}
+                />
+              </div>
+              <div className={styles.addEmojiTablet}>
+                <Button
+                  buttonStyle="outlined"
+                  buttonHeight={36}
+                  onClick={toggleEmojiPicker}
+                  smile
+                >
+                  추가
+                </Button>
+              </div>
               {emojiPickerOn && (
                 <EmojiPicker
                   className={styles.emojiPickerChild}
@@ -175,7 +179,6 @@ function HeaderService({
               >
                 <img src={shareBtn} alt="공유하기" />
               </button>
-
               {shareOn && (
                 <div className={styles.shareOptions}>
                   <KakaoShareButton />
