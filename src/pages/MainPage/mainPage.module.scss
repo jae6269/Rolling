@@ -240,3 +240,16 @@
     }
   }
 }
+
+@media screen and (max-width: 1199px) {
+  .buttonArea {
+    width: 720px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .buttonArea {
+    width: calc(100% - 80px);
+    margin: 0 40px;
+  }
+}

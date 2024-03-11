@@ -55,14 +55,14 @@ function ListPage() {
             <Carousel cards={newestRecipients} onDelete={handleCardDelete} />
           </div>
         </div>
-        <div className={styles.buttonContainer}>
-          <Link to="/post">
-            <Button buttonStyle="primary" buttonHeight={56} main>
-              나도 만들어보기
-            </Button>
-          </Link>
-        </div>
       </main>
+      <div className={styles.buttonArea}>
+        <Link to="/post">
+          <Button buttonStyle="primary" buttonHeight={56} main>
+            나도 만들어보기
+          </Button>
+        </Link>
+      </div>
     </>
   );
 }

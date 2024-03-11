@@ -149,7 +149,7 @@ function MessageCreatePage() {
           </label>
           <input
             id="sender"
-            placeholder="이름을 입력해 주세요."
+            placeholder="이름을 입력해 주세요"
             value={sender}
             onChange={handleSenderChange}
             className={`${styles.input} ${invalid ? styles.invalidInput : 'df'}`}
